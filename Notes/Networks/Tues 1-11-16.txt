@@ -1,0 +1,132 @@
+Master / Slave
+  DNS protocol has support for replicating zones between master and slave
+    Master Does not have to be visible. "Hidden" master is a popular pattern
+    Multiple nameservers can be updated by other means (SWL replication, rsync, people carrying USB sticks)
+
+Pro Tip: A common pattern on small networks is for the authoritative server to also be the recursive / caching server for local clients
+
+Delegation
+  Suppose we have a nameserver for batten.eu.org
+  ...
+  (See the slides... NS Records: Some sort of lookup table?)
+
+Glue Records
+  How to do you locate the A record for "dom.ain 86499 IN NS ns1.dom.ain"?
+  The zonefile dom.ain in that case has an A record for ns1.dom.ain as well as an NS for dom.ain
+  This is called a Glue Record
+
+Mail Exchange Records (MX Records)
+  (See the slides)
+
+Zone File Maintenance
+  You can edit zone-files manually but it is very prone to error
+  "If you're smart enough to edit them, you're smart enough not to"
+  Most sites generate the zone files from some other source of information, usually a database or some XML. (Classic "greybeard" shell scripts, which scare everyone once the autor leaves)
+
+Dynamic DNS (Dynamic Update)
+  (See slides)
+  "I want to add a single record to a running nameserver, and for it to save it out in a somewhat consistent way"
+  In the example, we are adding some rr set to the batten.eu.org zone. Push it in through the syntaxes and look it up, and it's there. It is also there on google &8.8.8.8
+  Useful for DHCP servers in trusting envionrments
+    You can update the DNS to reflect equipment entering and leaving the network
+  Allows anyone on the network to pretend to be anyone else by careful use of DHCP client id_str
+
+Reverse Mapping
+  IP number is transformed into the reverse order and looked up in special in-addr.arpa or .ip6.arpa domain (my thoughts right now: I have no idea what we're talking about....)
+  (See slides for example)
+
+Why strange formats?
+  in-addr.arpa format allows delegation on 8-bit boundaries
+  Makes delegation of /28s (for example) difficult
+  Various messy solutions: look them up
+  Lesson learnt, so ipv6 reverse mapping allows delegation on 4-bit boundaries in hierarchy
+
+
+
+
+
+Applications
+  TCP and below are complex, so it's easy to write applications
+  IETF slogan "rough consensus and running code" means that applications tend to be proposed, implemented rapidly, and then developed incrementally: grand architectures don't achieve consensus
+  "Simple" is the watchword
+
+User Protocols
+  FTP File transfer (Protocol)
+    Goes back to RFC114 April 1971, not TCP-based
+  SMTP Simple Mail Transfer (Protocol)
+    Goes back to 1982
+  HTTP HyperText Transport (Protocol)
+    Goes back to 1999
+  POP3 Post Office Protocol
+    Simple, easy to implement
+  IMAP4rev1 Internet Message Access Protocol
+    Complex, lisp-like syntax, complete implementations are surprisingly rare
+  ssh Secure Shell
+    Replaces telnet, rlogic, rsh, etc. all of which are very insecure and should never be used
+    Permits remote login (pseudo-tty), remove command execution, remote copying
+    Encrypted, various secure authentication mechanics
+
+File Sharing
+  NFS (originally from Sun)
+    Implementing from earlier standard difficult, as lots of Unix-semantics assumptions
+  SMB aka CIFS (originally from microsoft)
+    NOT STANDARDISED, lots of reverse engineering followed by proprietary documentation which may or may not be accurate.
+
+Infrastructure
+  DNS.
+  SNMP Simple Network Management Protocol (apparently not simple)
+  (S)NTP (Simple) Time
+
+Conventions...
+  Commands are case insensitive
+    "Four character" convention on older protocols (on mainframes, comparison of four-character strings is particularly efficient)
+  Lines are terminated with
+    "/r/n, /015/012, control-m control-j, carriage return line feed"
+    Back in the 1970's this was better. Completely unnecessary now
+  Responses often consist of a three-digit code followed by explanatory text
+
+...there to be broken
+  POP3 returns result codes in the first character of the response
+  IMAP4 uses "tags" to match responses to requests
+  And so on
+
+FTP
+  "A cesspit"
+  Very old protocol (first RFC nearly 45 years ago)
+  Requires extensive support to pass through NAT, Firewalls, etc.
+  Large and complex server (difficult to autit and secrure) supporting lots of conversion modes for TOPS-20, VMS, VM/CMS, block, record, stream...
+  (See slides for FTP graph (active FTP and passive FTP))
+
+FTP: Avoid!
+  Doesn't do anything that you need in 2015 and can't do with a more modern mechanism
+  Firewall and NAT support is grim and probably insecure.
+  Probably not as true now, but a few years ago FTP NAT support was >50% of total LoC in a NAT implementation
+  That there is an IPv6 profile for FTP is beyond all reason
+
+FTP: Daemons
+  Most compiters ship with some kind of FTP daemons
+    Frighteningly insecure, as they run as root and can be a huge backdoor
+  ProFTPD is full feature but very complex to configure
+  As a minimum, drop (...) or chroot()
+
+SMTP
+  Handles sending of mail
+  Has extensions for authentication, encryption, etc.
+  (See slides for SMTP graph)
+
+POP3
+  Crude protocol for downloading email
+  Connect, count messages, download
+    Assumes user has exactly one device to which they will be downloading the mail for further processing
+  Can be grossly abused to provide sharing between devices, but this will end in tears. Always prefer:
+
+IMAP
+  Complex and full-featured protocol for access to mailboxes
+  Can be used as POP for pure download if you want, but it is much better to leave your mail on the server for access from everywhere
+  (See example on Slides for the IMAP connection. He is connecting to a server, examining his inbox, fetching flags, fetch the header and body, understands "mine"
+  Supports remote searching, whcih has proven to be very useful for phones, although was originally intended for a very different model)
+    Use "elm" while logged into someone else's VAX
+    Auther Marc Crispin is a big TOP-20 man, so IMAP does not have quite teh same Unix-centric feel of other protocols
+  Also support download messages by parts, which is useful on slow links
+
+SSH next lecture

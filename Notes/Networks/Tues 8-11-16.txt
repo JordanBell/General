@@ -1,0 +1,15 @@
+NTP
+  Network Time Protocols
+  Time synchronisation
+  Does not operate on averages (consensus)
+  Is about choosing exactly one clock and synchronising the local clock to a remote reference
+  Other clocks are used to cross-check and provide back-ups
+
+Stratums
+  Stratum 0: Hardware, genuine atomic clocks, other stuff that is 100% accurate
+  Stratum 1: NTP servers which have stratum 0 equipment installed
+  Stratum 2: Speaks with Stratum 1
+
+Definitions
+  Rate: The rate of a clock is the frequency of maintaining an accurate pulse (an atomic process) which ticks. They follow on from eachother at the same rate (so that arbitrary units can be equated accurately to real time)
+  Phase: The clock's alignment to some external timescale, usually UTC

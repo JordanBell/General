@@ -8,7 +8,7 @@
 
 (* Similarly, while or if with constant values can have their expressions inferred *)
 
-(* CONSTANT PROPOGATION
+(* CONSTANT PROPAGATION
 
 - Involves variables which have known values
 - It builds on top of constant folding
@@ -48,15 +48,16 @@ main()
 
 WE CAN STILL INLINE for non-constant values
 But you need to be careful
-  let f x = x + x in f (g y)
+  f(x) { x + x }
+  f(g(y))
 Does it become
-  (g y) + (g y)?
+  g(y) + g(y)?
 
-No! Only in some cases. f might access global variables for example, and will do something different on the second call of (g y)
+Not always! Only in some cases. f might access global variables for example, and will do something different on the second call of (g y)
 
 *)
 
-(* STATE AND PROPOGATION
+(* STATE AND PROPAGATION
 Example (for non-concurrent code)
   x := 1; y := !x + 1
 becomes
@@ -87,7 +88,7 @@ becomes
 (* EXERCISE
 Implement front-end optimisations (using the evaluator)
 
-Basic: Constant folding, constant inlining
+Basic:  Constant folding     + constant inlining
 Medium: Constant propagation + loop unrolling
 Advanced: Anything else
 

@@ -1,0 +1,6 @@
+NTP
+  Network Time Protocols
+  Time synchronisation
+  Does not operate on averages (consensus)
+  Is about choosing exactly one clock and synchronising the local clock to a remote reference
+  Other clocks are used to cross-check and provide back-ups
