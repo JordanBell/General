@@ -1,0 +1,17 @@
+TCP: Overview
+  Successful because it's a point to point (one sender, one receiver) so it's relatively simple. If people want something else, they can implement it on type
+  Reliable, in-order bytestream
+  Note: TCP has no message boundaries
+    It kind of feels like it should
+    But you're sending a lump of data and when you call the read, you tend to get the same lump. Gives impression that TCP defines some boundary that maps the write to the read
+    This is actually a timing artifact because the write is at pretty much the same time as the read, so there's no other concept of messages, lines, etc.
+  It's pipelined, sending data in quantities in advance
+  Full duplex, sending data in both directions at the same time. When you establish connection, you get essentially two directions: one in each direction
+    Includes Maximum Segment Size
+  Connection-oriented
+    Handshaking, inits sender, receiver state before data exchange
+  Flow controlled
+    Sender will not overwhelm the receiver (think of the drinking-from-a-fire-hose analogy)
+
+Segment structure:
+  [See slides]

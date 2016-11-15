@@ -1,0 +1,92 @@
+This lecture we're looking at the model of distributed computer, hiding small details and focusing on big-picture theory and practicalities
+
+Distributed Computing
+  Computing on Multiple nodes (ie processes)
+  Each node has a unique identifier (for our purposes we will just use sequential uints)
+  Nodes are connected via a network of channels (ie edges)
+  Nodes do not share memory or a global clock
+    Not sharing a clock has some serios consequences that we will need to work around!
+  There can be 0 or 1 channels between two nodes (along an edge)
+  The network is assumed to be *strongly connected*L there is a path between every two nodes (possibly multi-hop).
+  The network may or may not be *complete*: there is an undirected channel between every pair of nodes
+    Note the difference between this and being *strongly connected*: Complete has an immediate connection between every pair of nodes
+  Channels can be directed (messages travel one way only) or undirected (messages travel in either direction)
+  Communication is via passing messages over channels
+  Channels are not ncessarily FIFO: messages may overtake each other, switching up the order.
+
+Definitions
+  A process knows
+    It's own state.
+    The messages it sends and receives
+    Its direct neighbors in the network
+
+  Underlying communication protocol is reliable
+    No messages corrupted, duplicated or lost (we will not cover handling these cases in the module)
+
+  Communication is asynchronous: there is an arbitrary, non-deterministic but finite delay between sending and receiving a message
+
+  Parameters
+    N: The number of nodes
+    E: The number of edges
+    D: The Diameter of the network (the longest "shortest path")
+      The number of edges in the longest path chosen from the set of shortest paths between every pair of nodes in the graph
+
+Issues
+  Parallel SPU computing is all about efficiency
+  Distributed computing is all about uncertainty: without excplicit communication and computation, a node does not know:
+    What time the other nodes think it is
+    What state the other nodes are in
+    Whether the other nodes have finished their computations
+    Whether it is safe to access a shared resource
+    Whether any of the nodes have failed (crashed)
+    Whetehr all the nodes are mutually waiting on each other (deadlock)
+    Whether it is safe to delete/destroy a shared resrouces when this node no longer needs it
+
+Spanning Tree of a Network
+  A spanning tree:
+    Contains all of the nodes of a network
+    Contains a subset of the edges
+    Has no cycles
+    Is undirected
+  Tree Edges:
+    Edges in the spanning tree
+  Frond Edges:
+    Edges in the network but not in the spanning tree
+  Sink Tree:
+    A tree made by making all the edges of a spanning tree directed from child nodes to parent nodes terminating at the root node
+
+Why are spanning trees important?
+  Nodes only see immediate neighbors, not the whole topology
+  A node needs to distribute a message to the whole network?
+    Naive: Send to all neighbors recursively
+      Does not terminate.
+    Naive++: Send to all neighbors recursively, but only once per node
+      Wasteful: Does terminate, but there is a lot of redundancy
+    Best: Send to root of the spanning tree, which sends to all children recursively.
+  Actual algorithms are more sophisticated, but depend on spanning trees for efficiency and guarantees of correctness.
+
+Transition Systems
+  A behavior of a distributed algorithm is given by a transition system:
+    A set of configurations: Each configuration is a global state of a distributed algorithm.
+    [...]
+
+Transition System Definitions
+  A number of definitions apply to a transition system:
+    A configuration is called *terminal* if there are no transitions out of that configuration
+    An *execution* of the distributed algorithm is a sequence of configurations beginning wtih an inital configuration, connected via transitions, and which is either infinite or ends in a terminal configuration.
+    A configuration is *reachable* if there is a possible execution that included that configuration.
+
+States and Events
+  A configuration of the set of local states of each node and the message in transit between the nodes.
+  Transitions are connected with events:
+    internal: Some event internal to an individual process such as reading or writing a variable. Internal events afect only the local state of the process involved.
+    Send: a message is end from one process to another (causing a future receive event at the other process)
+    Receive: A message is received from another process
+  We will restrict outselves to the asynchronous systems: Events never occur exactly simultaneously.
+    A process is an initiator if its first event is an inernal or send event
+    A centralised algorithm has precisely one initiator.
+      This is easier because every other agent will submit to that one initiator, however...
+      We are now dependent on that initator. If it crashes or is removed from the network, we are stuck
+    A decentralised algorithm can have multiple initiator.
+      A bit more complicated, but...
+      We are more free, because any of the intiators can initiate

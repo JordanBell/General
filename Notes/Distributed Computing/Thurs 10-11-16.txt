@@ -1,0 +1,59 @@
+Assertions
+  These are predicates on configurations of a distributed algorithm
+    Safety Property: An assertion that is required to be true in every *reachable* configuration of every execution
+      Typically used to assert that nothing bad will happen
+      If the assertion fails, there will be a finite witness: if something bad happens on an infinite run, it already happens on a finite prefix.
+      e.g. All results produced are correct
+    Liveness Propery:
+      Something that is required to be true in some configuration in every execution after some point
+        Typically used to assert that something good will evnetually happen
+        If the assertion fails, there will NOT be a finite witness: no matter what happens along a finite run, something good could still happen later.
+        e.g. A result will be produced
+
+Partial vs. Total Order
+  A "Total Order" (on A) defines a relationship <= on a set A such that for all elements a, b, c in A:
+    a <= a (reflexivity)
+    a <= b and b <= a -> a = b (anti-symmetry)
+    a <= b and b <= c -> a <= c (transitivity)
+    a <= b or b <= a (totality) (Note: Implies Reflexivity)
+  For example:
+    [...]
+  A "Partial Order" has the first 3 properties above, but does not have totality.
+
+Order
+  In each configuration, the possible events that can occur on different processes can occur in any order
+  "Causal Order" on events: a -< b iff a must occur before b in any execution
+    If a and b are events in the same process, and a occurs before b, then a -< b
+    If a is a send and b is the corresponding receive, then a -< b
+    If a -< b and b -< c then a -< c
+  Concurrent Events: Distinct events in an execution that are not causally related
+    With the above definition, concurrent events may not have occurred at the same physical time. However, a distributed system cannot tel the differece, so we treat them as if they have.
+
+Computations
+  [...]
+  Given nodes a, b, c and d
+        Exe 1              Exe 2
+    a send to b         a sends to b
+    c sends to d        b receives from a
+    b receives from a   c sends to d
+    d receives from c   d receives from c
+  Executions are too specific for our purposes. The two above do the same thing, but are two insignificantly different executions.
+  We will be more converned with sets of executions which differ only by reorderings of concurrent events
+  "Computation": A set of executions equivalent up to permutations of sequences of concurrent events.
+    In essence: "A computation is the set of all executions that basically do the same thing"
+    This simplifies our proofs.
+
+Logical Clocks
+  Time affects distributed systems a lot
+  We will use an algorithm to get an approximation for global time.
+  Time is used for:
+    Random numbers
+    Unique numbers, etc.
+  Logical clocks map events to a partially ordered set (usually integers) so that:
+    if a -< b then C(a) < C(b), where C(x) is the clock value for node x
+    Implementation of this requires each process to maintain data structures to support;
+      A local logical clock
+      A global logical clock
+
+Lamport's Clock
+  [...]

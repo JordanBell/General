@@ -1,0 +1,25 @@
+Mean time before failure: 1 / Failure Rate
+Example: Distributed system with 1000 nodes, all of which are critical. MTBF of each node of 10,000 = 60 weeks-ish. What is the MTBF of the system?
+Note: The failure rate of the system is the sum of all failures rates of the nodes
+Answer: Once every 10 hours, once of the nodes will fail, hence failing the whole system
+Solution: Don't have a system where every node is critical.
+
+Snapshots:
+  It is common to save snapshots of the system's state, so that we can continue from that point if it crashes
+  Since the program is sequential, it is easy to access the state of the program and save the snapshot
+  It is much harder for distributed programs!
+
+Snapshots for distributed programs:
+  Must record state of all nodes and channels (ie messages that are in transit along a channel)
+  Saving just the nodes isn't enough, since a message might be between nodes (so we need all points and edges in the graph, not just the points)
+  Try (spoiler alert, it's impossible): Agree to have all nodes save their state at a certain time.
+    Impossible because: No shared clock
+
+Inconsistency
+  An inconsistent snapshot may not correspond to a possible configuration
+  Recording of local snapshots must be coordinated exactly in order to ensure a consistent global state.
+  Since the global snapshot includes all the local snapshots, all pre-snapshot events will be included in the global snapshot, but all post-snapshot events must not be
+
+Cuts:
+  Visualise pre- and post- snapshots with cuts: A continuous line that cuts through each process line once [See slides for graphic]
+  A consistent global state corresponds to a cut where every message received in the logical past of that cut was also sent in the logical past of that cut

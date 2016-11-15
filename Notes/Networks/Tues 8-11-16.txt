@@ -13,3 +13,20 @@ Stratums
 Definitions
   Rate: The rate of a clock is the frequency of maintaining an accurate pulse (an atomic process) which ticks. They follow on from eachother at the same rate (so that arbitrary units can be equated accurately to real time)
   Phase: The clock's alignment to some external timescale, usually UTC
+
+Earth actually spins every 23h, 56m. The other four minutes are accounted by the orbit of earth around the sun. This is observable by the change of the sun's position across the seasons
+
+Leap Seconds
+  These cause a lot of issues, because they happen unpredictably (tsunami's affect the earth's spin)
+  Unix knows nothing of leap seconds, literally equating their value whe calculating dates and time
+
+NTP Objectives:
+  Correct rate: Tick the same rate as the reference clock
+  [...]
+
+NTP has complex algorithm to select clocks
+It prefers clocks that are higher stratum (numerically lower)
+
+SNTP v NTP
+  SNTP does not attempt to condition the local clocks.
+  Every hour attempts to reset their clock. Less frequent, more simple. May cause the clock to jump, but in some cases doesn't really matter.
