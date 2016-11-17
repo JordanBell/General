@@ -22817,6 +22817,23 @@ namespace cimg_library_suffixed {
       return res/size();
     }
 
+    // Returns -1 on error
+    int set_xy_as_mean_of(const int i_x, const int i_y, const CImg<T>& other)
+    {
+      if (other.spectrum() != spectrum())
+      {
+        // Must have the same number of spectrums
+        return -1;
+      }
+
+      for(int ci = 0; ci < spectrum(); ci++)
+      {
+        *data(i_x, i_y, 0, ci) = other.get_channel(ci).mean();
+      }
+
+      return 0;
+    }
+
     //! Return the variance of the pixel values.
     /**
        \param variance_method Method used to estimate the variance. Can be:
