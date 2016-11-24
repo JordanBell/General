@@ -58636,6 +58636,11 @@ namespace cimg {
   // End of cimg_library:: namespace
 }
 
+int main(int argc, char** argv)
+{
+	// Main does nothing
+}
+
 //! Short alias name.
 namespace cil = cimg_library_suffixed;
 

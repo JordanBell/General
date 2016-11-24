@@ -1,0 +1,32 @@
+[...]
+SCTP - Stream control transport protocol
+UDP with extra facilities
+
+[Skips through several protocols]
+  Imagine that you want to use UDP, but you want a bit more:
+    Timestamps
+    Time-sensitive delivery
+      "Deliver this package within the next five seconds, otherwise do __ etc."
+
+Multipath TCP
+  Something we'll use now for the next ~five years
+  More exciting
+  Looks to be genuinely useful
+  Allows us to set up a connection between two machines
+    Uses underlying available routes, even if they're roots are different
+  For example, may run across WiFi and 4G simultaneously (aweosme!)
+  How it's done:
+    In the SYN, mention that we're multipath capable
+    If server is also capable, then successful handshake.
+    Final ack acknowledges this
+    Application only sees one socket, but multiple tcp connections are working
+  If one connection breaks, ie lose phone signal or walk out of wifi range, the whole connection is still in tact
+    Initially some packet loss before reconfiguring
+  New, but growing
+  Application do not need to change
+
+Address Translation
+  Mechanism to extend scarce IP numbers
+  Incidentally provides some security
+  Breaks the "end to end principle"
+  Causes some people (such as Ian) to start shouting uncontrollably
