@@ -77,14 +77,14 @@ In a perfect world
 
 Acknowledgment mechanism
   Need to acknowledge that the packet was received correctly
-  (Negative Acknowledgment) Receiver explicitly tells teh sender that the packet had errors
+  (Negative Acknowledgment) Receiver explicitly tells the sender that the packet had errors
   The key problems arise from how to recover from such errors
   This does not handle lost packets, as the received will never know that they were sent.
   The acknowledgments themselves can be corrupted (nightmare!)
     In this case, the sender does not know what happened at the receiver
     One solution is to simply retransmit, BUT you can't simply do that, since you might have duplicates at the receiver
     Can avoid duplicates by enumerating packets, so that ones with the same identifier can be discarded
-  Timeouts used when packets lost to/from the receiver, or is delayed out of sequence (beyong the timeout period)
+  Timeouts used when packets lost to/from the receiver, or is delayed out of sequence (beyond the timeout period)
   Latency kills this mechanism
     Speed of light is a limiter (3x10^8 m/s)
     He have paths which are 2x10^6m (here to New York)
