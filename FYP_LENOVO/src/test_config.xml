@@ -1,7 +1,0 @@
-<test_config printResults="true">
-  <!-- Group: A collection of images which should all match each other  -->
-  <group name="Hair" doDisplay="true">
-    <member>hair1.bmp</member>
-    <member>hair2.bmp</member>
-  </group>
-</test_config>
