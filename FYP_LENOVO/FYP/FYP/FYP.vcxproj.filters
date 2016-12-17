@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="RapidXML">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="OpenCV">
+      <UniqueIdentifier>{a778d097-63db-486f-9961-37254b3556b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Images">
+      <UniqueIdentifier>{7058c2e0-d5fb-428d-832e-c8b2f3373409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Images\Batch 0">
+      <UniqueIdentifier>{af03ac85-035b-4d5a-922b-e6f91b7e0841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Images\Batch 1">
+      <UniqueIdentifier>{c5fb97df-68d1-48d1-8af8-4cc57bbbd178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Images\Batch 2">
+      <UniqueIdentifier>{ae4f6842-0839-4eb6-9301-86dfb84070ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Meta">
+      <UniqueIdentifier>{2cfd303d-1c4d-4694-9173-f8e101dd6170}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\CBitset.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_DimensionAverages.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rapidxml\rapidxml.hpp">
+      <Filter>RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rapidxml\rapidxml_iterators.hpp">
+      <Filter>RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rapidxml\rapidxml_print.hpp">
+      <Filter>RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rapidxml\rapidxml_utils.hpp">
+      <Filter>RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NTesting.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cv.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cv.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cvaux.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cvaux.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cvwimage.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cxcore.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cxcore.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cxeigen.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\cxmisc.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\highgui.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="opencv\build\include\opencv\ml.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Types.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Defines.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="TestImages\Batch0\hair1.bmp">
+      <Filter>Test Images\Batch 0</Filter>
+    </Image>
+    <Image Include="TestImages\Batch0\hair2.bmp">
+      <Filter>Test Images\Batch 0</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_4.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\face0_5.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\intelInside_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\intelInside_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\intelInside_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\intelInside_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\isaacBeads_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\isaacBeads_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\isaacBeads_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\isaacBeads_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\lock0_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\lock0_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_4.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\mask0_5.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\notepad0_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\notepad0_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\notepad0_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_4.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol0_5.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol1_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol1_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol1_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol2_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol2_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\symbol2_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\wallPlug_0.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\wallPlug_1.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\wallPlug_2.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\wallPlug_3.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch1\wallPlug_4.jpg">
+      <Filter>Test Images\Batch 1</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160512.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160523.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160636.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160637.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160639.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160648.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160650.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160653.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160718.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160721.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160723.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160727.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160839.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160842.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160843.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160849.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160907.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160915.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160923.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160932.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_160938.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161017.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161020.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161022.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161024.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161027.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161042.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161048.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161049.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161101.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161103.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161104.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161105.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161108.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161110.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161124.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161130.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161135.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161139.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161143.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161148.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161156.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161200.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161235.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161236.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161238.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161253.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161256.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161304.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161307.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161313.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161349.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161352.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161355.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161357.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161405.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161410.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161435.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161438.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161439.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161440.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161606.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161611.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161614.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161716.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161718.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161721.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161726.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_161729.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\20161213_1600102.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bricks0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bricks0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bricks0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bricks0_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bush0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bush0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bush0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\bush1_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\defibrillator0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\defibrillator0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\defibrillator0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\dirt0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\dirt0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\dirt0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_ad0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_ad0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_ad0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_ad0_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_4.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos0_5.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_4.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_5.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_dominos1_6.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_leftOnly_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_leftOnly_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_leftOnly_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_leftOnly_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_speedBump_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_speedBump_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_speedBump_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_4.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco0_5.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco1_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco1_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco1_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_tesco1_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_winchcombe_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_winchcombe_1.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_winchcombe_2.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\sign_winchcombe_3.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+    <Image Include="TestImages\Batch2\tiledFloor0_0.jpg">
+      <Filter>Test Images\Batch 2</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="results.txt">
+      <Filter>Meta</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="test_config.xml">
+      <Filter>Meta</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
