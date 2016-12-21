@@ -95,6 +95,12 @@
     <ClInclude Include="src\util.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\CTraitHandler_Color.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EHue.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

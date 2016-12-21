@@ -179,7 +179,8 @@ namespace NTesting
 		void testGroup(CGroup& i_tGroup)
 		{
 			// Create the trait handlers
-			CTraitHandler_DimensionAverages hda;
+			CTraitHandler_DimensionAverages ithDimensionAverages;
+			CTraitHandler_Color ithColors;
 
 			for(string sMemberName : i_tGroup)
 			{
@@ -196,7 +197,8 @@ namespace NTesting
 
 				// Apply the trait handlers to build the Image ID
 				string sImgID;
-				hda.evaluate(sImgID, sMemberName);
+				//ithDimensionAverages.evaluate(sImgID, sMemberName);
+				ithColors.evaluate(sImgID, sMemberName);
 				i_tGroup.addResult(sMemberName, sImgID);
 			}
 

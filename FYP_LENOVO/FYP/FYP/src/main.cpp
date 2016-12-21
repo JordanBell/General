@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
+#include <map>
 #include <iostream>
 
 // Windows Defines
@@ -29,11 +30,13 @@
 
 // Utilities
 #include "CBitset.h"
+#include "EHue.h"
 #include "util.h"
 
 // Core
 #include "CTraitHandler.h"
 #include "CTraitHandler_DimensionAverages.h"
+#include "CTraitHandler_Color.h"
 
 // Testing & Verification
 #include "NTesting.h"
