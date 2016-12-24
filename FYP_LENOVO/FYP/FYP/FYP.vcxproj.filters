@@ -95,10 +95,13 @@
     <ClInclude Include="src\util.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\CTraitHandler_Color.h">
+    <ClInclude Include="src\EHue.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\EHue.h">
+    <ClInclude Include="src\CTraitHandler_ColorFrequency.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_ColorSnap.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -616,7 +619,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="test_config.xml">
+    <Xml Include="testConfig.xml">
       <Filter>Meta</Filter>
     </Xml>
   </ItemGroup>

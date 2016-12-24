@@ -16,10 +16,12 @@ enum EHue
 	EHue_Violet,
 	EHue_Pink,
 
+	EHue_Grey,
+
 	EHue_Count
 };
 
-Vec3b getEHueToVec3b(const EHue i_eHue)
+Vec3b hueToVec3b(const EHue i_eHue)
 {
 	Vec3b r_vColor;
 	switch(i_eHue)
@@ -48,9 +50,16 @@ Vec3b getEHueToVec3b(const EHue i_eHue)
 		return Vec3b(255, 0, 255);
 	case EHue_Pink:
 		return Vec3b(127, 0, 255);
+	case EHue_Grey:
+		return Vec3b(127, 127, 127);
 	}
 
 	return Vec3b(255, 255, 255);
+}
+
+Vec3b hueToVec3b(const int i_iHueEnumVal)
+{
+	return hueToVec3b((EHue)i_iHueEnumVal);
 }
 
 Vec3b colorFromLinear(const float i_fLinearHue)
@@ -61,7 +70,7 @@ Vec3b colorFromLinear(const float i_fLinearHue)
 	float fGFactor = 0.f;
 	float fRFactor = 0.f;
 
-	float fStep = 1.f / 12.f;
+	float fStep = 1.f / EHue_Pink;
 
 	// Determine blue value
 	{
@@ -126,4 +135,71 @@ Vec3b colorFromLinear(const float i_fLinearHue)
 	fRFactor = std::max(fRFactor, 0.f);
 
 	return Vec3b(int(fBFactor * fIntensity * 255.f), int(fGFactor * fIntensity * 255.f), int(fRFactor * fIntensity * 255.f));
+}
+
+void normalise(Vec3b& io_vColor)
+{
+	const int iTotal = io_vColor[0] + io_vColor[1] + io_vColor[2];
+	float fRatioB = (float)io_vColor[0] / (float)iTotal;
+	float fRatioG = (float)io_vColor[1] / (float)iTotal;
+	float fRatioR = (float)io_vColor[2] / (float)iTotal;
+
+	io_vColor[0] = (int)(fRatioB * 255.f);
+	io_vColor[1] = (int)(fRatioG * 255.f);
+	io_vColor[2] = (int)(fRatioR * 255.f);
+}
+
+inline int getSatDiff(const Vec3f i_vfColor)
+{
+	int d0 = fabs(i_vfColor[0] - i_vfColor[1]);
+	int d1 = fabs(i_vfColor[1] - i_vfColor[2]);
+	int d2 = fabs(i_vfColor[2] - i_vfColor[0]);
+	return d0 + d1 + d2;
+}
+
+EHue vecToHue(const Vec3b& i_vbColor)
+{
+	// Check the saturation
+	/*if(getSatDiff(i_vbColor) < 200)
+	{
+		return EHue_Grey;
+	}*/
+
+	// Convert input color to float for arithmetic operation
+	const Vec3f i_vfColor = (Vec3f)i_vbColor; 
+
+	// Track the hue data that is the closest match for the input
+	EHue eClosest;
+	double dClosest = (double)FLT_MAX;
+	for(int iHue = EHue_Red; iHue <= EHue_Pink; ++iHue)
+	{
+		EHue eHue = (EHue)iHue;
+
+		// Get the normalised color value for this hue
+		Vec3b vHue = hueToVec3b(eHue);
+		normalise(vHue);
+
+		// Get the difference between this hue and the input color
+		const Vec3f vDiff = (Vec3f)vHue - i_vfColor;
+		double dDiff = norm(vDiff);
+		if(dDiff < dClosest)
+		{
+			dClosest = dDiff;
+			eClosest = eHue;
+		}
+	}
+
+	if(dClosest < 75.f)
+	{
+		return eClosest;
+	}
+	else
+	{
+		return EHue_Grey;
+	}
+}
+
+void snapToHue(Vec3b& io_vColor)
+{
+	io_vColor = hueToVec3b(vecToHue(io_vColor));
 }

@@ -7,6 +7,10 @@ struct CTraitHandler
 	static cv::Mat s_tImage;
 	static string s_sResultDirectory;
 
+	string m_sResultDirectory;
+
+	static Size s_tInputSizeLimit;
+
 	int m_iInstanceIndex;
 
 	CTraitHandler()
@@ -22,6 +26,34 @@ struct CTraitHandler
 		//s_lpAllHandlers.erase(s_lpAllHandlers.begin() + m_iInstanceIndex);
 	}
 
+	static void makeInputImageValid(Mat& io_tImage)
+	{
+		// 1. Resize
+		float fWidth = io_tImage.cols;
+		float fHeight = io_tImage.rows;
+
+		if(fWidth > s_tInputSizeLimit.width)
+		{
+			const float fAdjustment = (float)s_tInputSizeLimit.width / (float)fWidth;
+			fWidth *= fAdjustment;
+			fHeight *= fAdjustment;
+		}
+		
+		if (fHeight > s_tInputSizeLimit.height)
+		{
+			const float fAdjustment = (float)s_tInputSizeLimit.height / (float)fHeight;
+			fWidth *= fAdjustment;
+			fHeight *= fAdjustment;
+		}
+
+		Mat tResized;
+		Size tNewSize((int)fWidth, (int)fHeight);
+		resize(io_tImage, tResized, tNewSize); 
+		io_tImage = tResized;
+
+		// 2. Posterize
+	}
+
 	static int setProcessingImage(string i_sFilepath)
 	{
 		// Set the static processing image
@@ -34,6 +66,8 @@ struct CTraitHandler
 			return -1;
 		}
 
+		makeInputImageValid(s_tImage);
+
 		const string sImageFilename = i_sFilepath.substr(i_sFilepath.rfind('/') + 1);
 		i_sFilepath = sImageFilename.substr(0, sImageFilename.rfind('.'));
 
@@ -41,13 +75,15 @@ struct CTraitHandler
 		s_sResultDirectory = "Results/" + i_sFilepath + "/";
 
 		ENSURE_DIR(s_sResultDirectory);
+		imwrite(s_sResultDirectory + "Original.bmp", s_tImage);
 
 		return 0;
 	}
 
 	// Returns a string result for the subject image
-	virtual void evaluate(string& o_sID, const std::string& i_sImgName) = 0;
+	virtual void evaluate(string& o_sID, const std::string& i_sImgName, const bool i_bDisplay) = 0;
 };
 
 string CTraitHandler::s_sResultDirectory = "";
 cv::Mat CTraitHandler::s_tImage;
+Size CTraitHandler::s_tInputSizeLimit = Size(64, 64);

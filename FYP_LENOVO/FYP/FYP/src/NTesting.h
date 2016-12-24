@@ -1,4 +1,4 @@
-#define CONFIG_FILEPATH "test_config.xml"
+#define CONFIG_FILEPATH "testConfig.xml"
 #define OUTPUT_LOG_FILENAME "results.txt"
 
 using namespace rapidxml;
@@ -6,7 +6,6 @@ using namespace std;
 
 namespace NTesting
 {
-
 	struct CGroup : public vector<string>
 	{
 		enum EFlag
@@ -90,13 +89,7 @@ namespace NTesting
 
 	struct CConfig
 	{
-		enum EFlag
-		{
-			EFlag_PrintResults,
-		};
-
 		vector<CGroup> m_tGroups;
-		CBitset m_tFlags;
 
 		CConfig()
 		{
@@ -105,14 +98,17 @@ namespace NTesting
 			xml_document<> m_tDoc;
 			m_tDoc.parse<0>(xmlFile.data());
 
-			xml_node<>* pRoot = m_tDoc.first_node("test_config");
-			m_tFlags.set(EFlag_PrintResults, pRoot->first_attribute("printResults") != NULL);
+			xml_node<>* pRoot = m_tDoc.first_node("testConfig");
 
 			// Loop through groups
 			for (xml_node<>* pGroup = pRoot->first_node("group"); pGroup; pGroup = pGroup->next_sibling())
 			{
 				CGroup tGroup;
 
+				// Will we display this group's results?
+				tGroup.m_tFlags.set(CGroup::EFlag_Display, pGroup->first_attribute("doDisplay") != NULL && strcmp(pGroup->first_attribute("doDisplay")->value(), "true") == 0);
+
+				// Set the group name
 				if(pGroup->first_attribute("name"))
 				{
 					tGroup.m_sName = pGroup->first_attribute("name")->value();
@@ -124,14 +120,38 @@ namespace NTesting
 					tGroup.m_sName += to_string(CGroup::s_iUnnamedGroupCounter++);
 				}
 
-				// Loop through members
-				for (xml_node<>* pMember = pGroup->first_node("member"); pMember; pMember = pMember->next_sibling())
+				// Add any members
+				for (xml_node<>* pMember = pGroup->first_node("member"); pMember; pMember = pMember->next_sibling("member"))
 				{
-					// Set attribute data
-					tGroup.m_tFlags.set(CGroup::EFlag_Display, pMember->first_attribute("doDisplay") != NULL);
-
 					// Add the value to the group
 					tGroup.push_back(pMember->value());
+				} 
+				
+				// Activate any member generators
+				if (pGroup->first_node("memberGenerator"))
+				{
+					const char* sAttributePrefix = "prefix";
+					const char* sAttributeCount = "count";
+					const char* sAttributeExtension = "extension";
+
+					// Add members from the generators' attributes
+					for (xml_node<>* pGenerator = pGroup->first_node("memberGenerator"); pGenerator; pGenerator = pGenerator->next_sibling("memberGenerator"))
+					{
+						// Make sure all attributes are there.
+						assertbr(pGenerator->first_attribute(sAttributePrefix) && pGenerator->first_attribute(sAttributeCount) && pGenerator->first_attribute(sAttributeExtension), "A member generator within group \"" + tGroup.m_sName + "\" is missing its required attributes");
+
+						// Set attribute data
+						string sPrefix = pGenerator->first_attribute(sAttributePrefix)->value();
+						string sCount = pGenerator->first_attribute(sAttributeCount)->value();
+						string sExtension = pGenerator->first_attribute(sAttributeExtension)->value();
+
+						// Generate and add members
+						const int iCount = stoi(sCount);
+						for(int i = 0; i < iCount; ++i)
+						{
+							tGroup.push_back(sPrefix + to_string(i) + "." + sExtension);
+						}
+					} 
 				}
 
 				m_tGroups.push_back(tGroup);
@@ -180,32 +200,38 @@ namespace NTesting
 		{
 			// Create the trait handlers
 			CTraitHandler_DimensionAverages ithDimensionAverages;
-			CTraitHandler_Color ithColors;
+			CTraitHandler_ColorSnap ithColorSnap;
+			CTraitHandler_ColorFrequency ithColorFrequency;
 
 			for(string sMemberName : i_tGroup)
 			{
+				const bool bDisplayResultImages = i_tGroup.m_tFlags.get(CGroup::EFlag_Display);
+
 				if(CTraitHandler::setProcessingImage(sMemberName) < 0)
 				{
 					assertbr(0, "Error: Could not load image: \"" + sMemberName + "\"\n");
 					continue;
 				}
 
-#ifdef DISPLAY_RESULTS
-				displayImage(sMemberName + ": Original Image", CTraitHandler::s_tImage);
-				waitKey(0);
-#endif
+				string sImageFilename = sMemberName.substr(sMemberName.rfind('/') + 1);
+				sImageFilename = sImageFilename.substr(0, sImageFilename.rfind('.'));
+
+				if (bDisplayResultImages)
+				{
+					displayImage(sImageFilename + ": Original Image", CTraitHandler::s_tImage);
+					waitKey(0); 
+				}
 
 				// Apply the trait handlers to build the Image ID
 				string sImgID;
-				//ithDimensionAverages.evaluate(sImgID, sMemberName);
-				ithColors.evaluate(sImgID, sMemberName);
-				i_tGroup.addResult(sMemberName, sImgID);
+				printf("%s...\n", sImageFilename.c_str());
+				//ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				i_tGroup.addResult(sImageFilename, sImgID);
 			}
 
-			if(m_tConfig.m_tFlags.get(CConfig::EFlag_PrintResults))
-			{
-				i_tGroup.printResults(m_pResultsOutFile);
-			}
+			i_tGroup.printResults(m_pResultsOutFile);
 		}
 	};
 

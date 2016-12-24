@@ -1,6 +1,4 @@
-#if defined(DISPLAY_RESULTS)
 //#define RECONSTRUCT
-#endif
 
 struct CTraitHandler_DimensionAverages : public CTraitHandler
 {
@@ -11,7 +9,7 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 	{
 	}
 
-	void evaluate(std::string& o_sID, const std::string& i_sImgName) override
+	void evaluate(std::string& o_sID, const std::string& i_sImgName, const bool i_bDisplay) override
 	{
 		// Create the sub-images and displays
 		m_tVert = s_tImage.col(0);
@@ -20,6 +18,7 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 		// Construct vert
 		for(int i = 0; i < s_tImage.rows; i++)
 		{
+			//m_tVert.at<Vec3b>(0, i) = mean(s_tImage.row(i)); // TODO: Maybe do something like this?
 			setXYAsMeanOf(m_tVert, 0, i, s_tImage.row(i));
 		}
 
@@ -29,12 +28,7 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 			setXYAsMeanOf(m_tHori, i, 0, s_tImage.col(i));
 		}
 
-#ifdef DISPLAY_RESULTS
-		displayImage(i_sImgName + ": Horizontal Averages", m_tHori); 
-		displayImage(i_sImgName + ": Vertical Averages", m_tVert); 
-#endif
-
-#ifdef RECONSTRCT
+#ifdef RECONSTRUCT
 		Mat reconstructed = Mat(s_tImage.cols, s_tImage.rows, CV_8UC3);
 		for(int i = 0; i < reconstructed.cols; ++i)
 		{
@@ -43,10 +37,17 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 				reconstructed.at<Vec3b>(j, i) = (m_tVert.at<Vec3b>(j, 0) + m_tHori.at<Vec3b>(0, i)) * 0.5f;
 			}
 		}
-
-		displayImage(i_sImgName + ": Reconstructed", reconstructed); 
-		waitKey(0);
 #endif
+
+		if (i_bDisplay)
+		{
+			displayImage(i_sImgName + ": Horizontal Averages", m_tHori); 
+			displayImage(i_sImgName + ": Vertical Averages", m_tVert);  
+#ifdef RECONSTRUCT
+			displayImage(i_sImgName + ": Reconstructed", reconstructed); 
+#endif
+			waitKey(0); 
+		}
 
 
 		// Ensure directories for the result directory
@@ -58,19 +59,15 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 		ensureDirectory(sResultDirectory);
 		
 		// Save the images to this ITH's directory
-		std::string sOutFilepath;
-		sOutFilepath = sResultDirectory + "reconstructed.bmp";
+		imwrite(sResultDirectory + "x.bmp", m_tVert);
+		imwrite(sResultDirectory + "y.bmp", m_tHori);
 #ifdef RECONSTRUCT
 		// Save the image to the reconstructed file
-		imwrite(sOutFilepath.c_str(), reconstructed);
+		imwrite(sResultDirectory + "reconstructed.bmp", reconstructed);
 #else
 		// Delete the reconstruction file (if one exists)
-		DeleteFile(sOutFilepath.c_str());
+		DeleteFile((sResultDirectory + "reconstructed.bmp").c_str());
 #endif
-		sOutFilepath = sResultDirectory + "x.bmp";
-		imwrite(sOutFilepath.c_str(), m_tVert);
-		sOutFilepath = sResultDirectory + "y.bmp";
-		imwrite(sOutFilepath.c_str(), m_tHori);
 
 		// Calculate the evaluation string
 		{

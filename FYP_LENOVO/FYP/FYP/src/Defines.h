@@ -1,6 +1,5 @@
 // This file will hold #define values that will configure the entire project
 
-#define DISPLAY_RESULTS
 #define TEST_IMAGES_DIR "TestImages/"
 #define MAGNIFY_FACTOR 8.f
 

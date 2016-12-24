@@ -1,3 +1,5 @@
+#pragma warning (disable : 4244)
+
 // Include <>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,6 +25,7 @@
 // OpenCV
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 // Pre-headers
 #include "Types.h"
@@ -36,7 +39,8 @@
 // Core
 #include "CTraitHandler.h"
 #include "CTraitHandler_DimensionAverages.h"
-#include "CTraitHandler_Color.h"
+#include "CTraitHandler_ColorSnap.h"
+#include "CTraitHandler_ColorFrequency.h"
 
 // Testing & Verification
 #include "NTesting.h"

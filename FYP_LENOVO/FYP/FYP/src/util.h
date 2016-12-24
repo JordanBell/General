@@ -46,7 +46,6 @@ static int ensureDirectory(const string& i_sFilename)
 #endif
 }
 
-#if defined(DISPLAY_RESULTS)
 void displayImage(const string& winname, const Mat& img, const float sx = MAGNIFY_FACTOR, const float sy = MAGNIFY_FACTOR)
 {
 	const int w = int(sx * img.cols);
@@ -56,7 +55,6 @@ void displayImage(const string& winname, const Mat& img, const float sx = MAGNIF
 	resizeWindow(winname, w, h);
 	imshow(winname, img);
 }
-#endif
 
 bool operator<(const Vec3b& lhs, const Vec3b& rhs)
 {
@@ -97,6 +95,7 @@ multimap<B, A> flipMap(const map<A, B>& src)
 	return dst;
 }
 
+// Perhaps now deprecated
 void setXYAsMeanOf(Mat& dst, int x, int y, const Mat& src)
 {
 	// Get the average pixel value in src
@@ -155,9 +154,4 @@ void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, cons
 	//	i++;
 	//	it++;
 	//}
-}
-
-void printVec3bAsHue(const Vec3b& value)
-{
-	
 }
