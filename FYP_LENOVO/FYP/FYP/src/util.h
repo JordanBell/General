@@ -56,14 +56,14 @@ void displayImage(const string& winname, const Mat& img, const float sx = MAGNIF
 	imshow(winname, img);
 }
 
-bool operator<(const Vec3b& lhs, const Vec3b& rhs)
+inline bool operator<(const Vec3b& lhs, const Vec3b& rhs)
 {
 	return (lhs[0] + lhs[1] + lhs[2]) < (rhs[0] + rhs[1] + rhs[2]);
 }
 
-bool operator>(const Vec3b& lhs, const Vec3b& rhs)
+inline bool operator>(const Vec3b& lhs, const Vec3b& rhs)
 {
-	return true;
+	return (lhs[0] + lhs[1] + lhs[2]) > (rhs[0] + rhs[1] + rhs[2]);
 }
 
 string toString(const Vec3b& v)
@@ -116,42 +116,68 @@ void setXYAsMeanOf(Mat& dst, int x, int y, const Mat& src)
 	dst.at<Vec3b>(y, x) = vAverage;
 }
 
-void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_imgSrc)
+struct CFrequencyCounter
 {
+	vector<pair<Vec3b, int>> m_frequencies;
+
+	void addColor(const Vec3b& i_vColor)
+	{
+		for(pair<Vec3b, int>& tPair : m_frequencies)
+		{
+			if(tPair.first == i_vColor)
+			{
+				tPair.second++;
+				return;
+			}
+		}
+
+		m_frequencies.push_back(pair<Vec3b, int>(i_vColor, 1));
+	}
+
+	void getMostFrequent(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_imgSrc)
+	{
+		// Build a sorted map of the frequencies
+		multimap<int, Vec3b> mCounterColors;
+		for(pair<Vec3b, int>& tPair : m_frequencies)
+		{
+			mCounterColors.emplace(tPair.second, tPair.first);
+		}
+
+		// Add the n most frequent values
+		int i = 0;
+		multimap<int, Vec3b>::iterator it = mCounterColors.end();
+		it--;
+		while(i < i_iNumToGet && it != mCounterColors.begin())
+		{
+			o_vMostFrequent.push_back(it->second); // Add this value to the vector of Most Frequent colors
+
+			// Increase counter and iterator
+			++i;
+			--it;
+		}
+	}
+};
+
+void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_tSrc)
+{
+	/*o_vMostFrequent.push_back(Vec3b(0, 0, 0));
 	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
 	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
 	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	return;
+	return;*/
 
-	//// Track how many times each color has been encountered
-	//map<Vec3b, int> mColorCounters;
+	// Track how many times each color has been encountered
+	CFrequencyCounter tCounter;
 
-	//// Build the frequency map
-	//for(int i = 0; i < i_imgSrc.cols; i++)
-	//{
-	//	for(int j = 0; j < i_imgSrc.rows; j++)
-	//	{
-	//		Vec3b vColor = i_imgSrc.at<Vec3b>(j, i);
-	//		pair<map<Vec3b, int>::iterator, bool> r_emplace = mColorCounters.emplace(vColor);
-	//		if(!r_emplace.second)
-	//		{
-	//			// If there already exists an object, increase the counter
-	//			r_emplace.first->second++;
-	//		}
-	//	}
-	//}
-
-	//multimap<int, Vec3b> mCounterColors = flipMap(mColorCounters);
-
-	//int i = 0;
-	//multimap<int, Vec3b>::iterator it = mCounterColors.begin();
-	//while(i < i_iNumToGet && it != mCounterColors.end())
-	//{
-	//	o_vMostFrequent.push_back(it->second); // Add this value to the vector of Most Frequent colors
-
-	//	// Increase counter and iterator
-	//	i++;
-	//	it++;
-	//}
+	// Build the frequency map
+	for(int i = 0; i < i_tSrc.cols; i++)
+	{
+		for(int j = 0; j < i_tSrc.rows; j++)
+		{
+			Vec3b vColor = i_tSrc.at<Vec3b>(j, i);
+			tCounter.addColor(vColor);
+		}
+	}
+	
+	tCounter.getMostFrequent(o_vMostFrequent, i_iNumToGet, i_tSrc);
 }

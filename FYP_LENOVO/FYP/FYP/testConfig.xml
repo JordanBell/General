@@ -1,0 +1,46 @@
+<testConfig>
+  <!-- Group: A collection of images which should all match each other  -->
+  
+  <!-- Misc -->
+  <group name="Misc" doDisplay="false">
+    <member>Misc/spectrum.jpg</member>
+  </group>
+  
+  <!-- Batch 0 -->
+  <group name="Hair" doDisplay="true">
+    <member>Batch0/hair1.bmp</member>
+    <member>Batch0/hair2.bmp</member>
+  </group>
+
+  <!-- Batch 1 -->
+  <group name="Intel Inside">
+    <memberGenerator prefix="Batch1/intelInside_" count="4" extension="jpg"/>
+  </group>
+  <group name="Isaac">
+    <memberGenerator prefix="Batch1/isaacBeads_" count="4" extension="jpg"/>
+  </group>
+  <group name="Lock">
+    <memberGenerator prefix="Batch1/lock0_" count="2" extension="jpg"/>
+  </group>
+  <group name="Mask">
+    <memberGenerator prefix="Batch1/mask0_" count="6" extension="jpg"/>
+  </group>
+  <group name="Notepad" doDisplay="true">
+    <memberGenerator prefix="Batch1/notepad0_" count="3" extension="jpg"/>
+  </group>
+  <group name="Symbol 0">
+    <memberGenerator prefix="Batch1/symbol0_" count="6" extension="jpg"/>
+  </group>
+  <group name="Symbol 1">
+    <memberGenerator prefix="Batch1/symbol1_" count="3" extension="jpg"/>
+  </group>
+  <group name="Symbol 2">
+    <memberGenerator prefix="Batch1/symbol2_" count="3" extension="jpg"/>
+  </group>
+  <group name="Wall Plug">
+    <memberGenerator prefix="Batch1/wallPlug_" count="5" extension="jpg"/>
+  </group>
+  <group name="Face">
+    <memberGenerator prefix="Batch1/face0_" count="6" extension="jpg"/>
+  </group>
+</testConfig>

@@ -202,6 +202,7 @@ namespace NTesting
 			CTraitHandler_DimensionAverages ithDimensionAverages;
 			CTraitHandler_ColorSnap ithColorSnap;
 			CTraitHandler_ColorFrequency ithColorFrequency;
+			CTraitHandler_Grabcut ithGrabcut;
 
 			for(string sMemberName : i_tGroup)
 			{
@@ -225,9 +226,10 @@ namespace NTesting
 				// Apply the trait handlers to build the Image ID
 				string sImgID;
 				printf("%s...\n", sImageFilename.c_str());
+				ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				//ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				//ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				i_tGroup.addResult(sImageFilename, sImgID);
 			}
 

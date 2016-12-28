@@ -149,22 +149,14 @@ void normalise(Vec3b& io_vColor)
 	io_vColor[2] = (int)(fRatioR * 255.f);
 }
 
-inline int getSatDiff(const Vec3f i_vfColor)
+void normaliseHLS(Vec3b& io_vColor)
 {
-	int d0 = fabs(i_vfColor[0] - i_vfColor[1]);
-	int d1 = fabs(i_vfColor[1] - i_vfColor[2]);
-	int d2 = fabs(i_vfColor[2] - i_vfColor[0]);
-	return d0 + d1 + d2;
+	io_vColor[1] = 127;
+	io_vColor[2] = 255;
 }
 
 EHue vecToHue(const Vec3b& i_vbColor)
 {
-	// Check the saturation
-	/*if(getSatDiff(i_vbColor) < 200)
-	{
-		return EHue_Grey;
-	}*/
-
 	// Convert input color to float for arithmetic operation
 	const Vec3f i_vfColor = (Vec3f)i_vbColor; 
 
@@ -202,4 +194,33 @@ EHue vecToHue(const Vec3b& i_vbColor)
 void snapToHue(Vec3b& io_vColor)
 {
 	io_vColor = hueToVec3b(vecToHue(io_vColor));
+}
+
+// i_iChannelDivisions: The number of fractions of 255 we will snap each channel to
+void snapColors(Vec3b& io_vColor, const int i_iChannelDivisions)
+{
+	io_vColor[0] = (char)(io_vColor[0] / i_iChannelDivisions);
+	io_vColor[0] = (char)(io_vColor[0] * i_iChannelDivisions);
+
+	io_vColor[1] = (char)(io_vColor[1] / i_iChannelDivisions);
+	io_vColor[1] = (char)(io_vColor[1] * i_iChannelDivisions);
+
+	io_vColor[2] = (char)(io_vColor[2] / i_iChannelDivisions);
+	io_vColor[2] = (char)(io_vColor[2] * i_iChannelDivisions);
+}
+
+// i_iChannelDivisions: The number of fractions of 255 we will snap each channel to
+void snapColorsHLS(Vec3b& io_vColor, const int i_iChannelDivisions)
+{
+	// Hue
+	io_vColor[0] = (char)(io_vColor[0] / i_iChannelDivisions);
+	io_vColor[0] = (char)(io_vColor[0] * i_iChannelDivisions);
+
+	// Lightness
+	io_vColor[1] = 127;
+	io_vColor[1] = 127;
+
+	// Saturation
+	io_vColor[2] = 255;
+	io_vColor[2] = 255;
 }

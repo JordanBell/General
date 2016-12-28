@@ -27,15 +27,12 @@
     <Filter Include="Meta">
       <UniqueIdentifier>{2cfd303d-1c4d-4694-9173-f8e101dd6170}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ITH">
+      <UniqueIdentifier>{e9f90cdf-bdfa-492c-abfc-62a60943439a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBitset.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CTraitHandler.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CTraitHandler_DimensionAverages.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\rapidxml\rapidxml.hpp">
@@ -98,11 +95,23 @@
     <ClInclude Include="src\EHue.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\CTraitHandler_ColorFrequency.h">
+    <ClInclude Include="src\Histogram.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\CTraitHandler.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_ColorFrequency.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
     <ClInclude Include="src\CTraitHandler_ColorSnap.h">
-      <Filter>src</Filter>
+      <Filter>src\ITH</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_DimensionAverages.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_Grabcut.h">
+      <Filter>src\ITH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

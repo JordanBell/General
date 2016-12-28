@@ -88,8 +88,10 @@
     <ClInclude Include="src\CTraitHandler_ColorSnap.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h" />
+    <ClInclude Include="src\CTraitHandler_Grabcut.h" />
     <ClInclude Include="src\Defines.h" />
     <ClInclude Include="src\EHue.h" />
+    <ClInclude Include="src\Histogram.h" />
     <ClInclude Include="src\NTesting.h" />
     <ClInclude Include="src\rapidxml\rapidxml.hpp" />
     <ClInclude Include="src\rapidxml\rapidxml_iterators.hpp" />
@@ -274,7 +276,9 @@
     <Text Include="results.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="testConfig.xml" />
+    <Xml Include="testConfig.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

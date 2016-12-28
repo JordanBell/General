@@ -34,6 +34,7 @@
 // Utilities
 #include "CBitset.h"
 #include "EHue.h"
+#include "Histogram.h"
 #include "util.h"
 
 // Core
@@ -41,6 +42,7 @@
 #include "CTraitHandler_DimensionAverages.h"
 #include "CTraitHandler_ColorSnap.h"
 #include "CTraitHandler_ColorFrequency.h"
+#include "CTraitHandler_Grabcut.h"
 
 // Testing & Verification
 #include "NTesting.h"

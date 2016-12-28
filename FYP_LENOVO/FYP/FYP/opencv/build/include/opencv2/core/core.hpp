@@ -639,6 +639,11 @@ public:
     //! conversion to 4-element CvScalar.
     operator CvScalar() const;
 
+	bool operator<(const Vec<_Tp, cn>& v) const 
+	{ 
+		return this[0] < v[0]; 
+	}
+
     /*! element access */
     const _Tp& operator [](int i) const;
     _Tp& operator[](int i);
