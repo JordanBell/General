@@ -21,7 +21,9 @@ struct CTraitHandler_ColorSnap : public CTraitHandler
 
 		// Normalise each 
 		Mat tNormalised = s_tImage.clone();
+		cvtColor(tNormalised, tColorSnapped, CV_BGR2HLS);
 		for_each(tNormalised.begin<Vec3b>(), tNormalised.end<Vec3b>(), [] (Vec3b& io_vColor) { normaliseHLS(io_vColor); });
+		cvtColor(tColorSnapped, tColorSnapped, CV_HLS2BGR);
 
 		sResultDirectory = "Results/Normalisation/";
 		ensureDirectory(sResultDirectory);

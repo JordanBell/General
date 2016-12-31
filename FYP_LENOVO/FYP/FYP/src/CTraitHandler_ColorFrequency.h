@@ -12,15 +12,9 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 		m_tOut = Mat(1, 4, CV_8UC3);
 		const int k_iNumFrequencies = 4; // The top n colors we will consider as frequent
 		
-		// Get a color-snapped clone of the image
-		//grabCut( *image, mask, rect, bgdModel, fgdModel, 1 );
-		Mat tImage = s_tImage.clone();
-		cvtColor(tImage, tImage, CV_BGR2HLS);
-		for_each(tImage.begin<Vec3b>(), tImage.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 1); });
-
-		// Create a histogram of the image
+		// Create a histogram of the color-snapped image
 		Mat tHistImage;
-		makeHistogramHue(tHistImage, tImage);
+		makeHistogramHue(tHistImage, s_tImageColorSnapped);
 
 		/// Display
 		if(i_bDisplay)
@@ -37,7 +31,7 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 		imwrite(s_sResultDirectory + "/Histogram_Hue.bmp", tHistImage);
 
 		vector<Vec3b> tMostFrequentColors;
-		getMostFrequentColors(tMostFrequentColors, k_iNumFrequencies, tImage);
+		getMostFrequentColors(tMostFrequentColors, k_iNumFrequencies, s_tImageColorSnapped);
 
 		for(unsigned int i = 0; i < k_iNumFrequencies && i < tMostFrequentColors.size(); i++)
 		{

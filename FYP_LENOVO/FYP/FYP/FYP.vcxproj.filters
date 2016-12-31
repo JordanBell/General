@@ -113,6 +113,9 @@
     <ClInclude Include="src\CTraitHandler_Grabcut.h">
       <Filter>src\ITH</Filter>
     </ClInclude>
+    <ClInclude Include="src\CTimer.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -628,7 +631,10 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="testConfig.xml">
+    <Xml Include="testConfig - Perfect.xml">
+      <Filter>Meta</Filter>
+    </Xml>
+    <Xml Include="testConfig - Acceptable.xml">
       <Filter>Meta</Filter>
     </Xml>
   </ItemGroup>

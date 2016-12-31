@@ -71,39 +71,39 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 
 		// Calculate the evaluation string
 		{
-			// Do vertical
-			{
-				o_sID += "v: ";
-				for(int i = 0; i < m_tVert.rows; ++i)
-				{
-					Vec3b vPixVal = m_tVert.at<Vec3b>(i, 0);
+			//// Do vertical
+			//{
+			//	o_sID += "v: ";
+			//	for(int i = 0; i < m_tVert.rows; ++i)
+			//	{
+			//		Vec3b vPixVal = m_tVert.at<Vec3b>(i, 0);
 
-					// Add the vector values as strings
-					o_sID += std::to_string(vPixVal[0]);
-					o_sID += ',';
-					o_sID += std::to_string(vPixVal[1]);
-					o_sID += ',';
-					o_sID += std::to_string(vPixVal[2]);
-					o_sID += ',';
-				}
-			}
+			//		// Add the vector values as strings
+			//		o_sID += std::to_string(vPixVal[0]);
+			//		o_sID += ',';
+			//		o_sID += std::to_string(vPixVal[1]);
+			//		o_sID += ',';
+			//		o_sID += std::to_string(vPixVal[2]);
+			//		o_sID += ',';
+			//	}
+			//}
 
-			// Do horizontal
-			{
-				o_sID += "h: ";
-				for(int i = 0; i < m_tHori.cols; ++i)
-				{
-					Vec3b vPixVal = m_tHori.at<Vec3b>(0, i);
+			//// Do horizontal
+			//{
+			//	o_sID += "h: ";
+			//	for(int i = 0; i < m_tHori.cols; ++i)
+			//	{
+			//		Vec3b vPixVal = m_tHori.at<Vec3b>(0, i);
 
-					// Add the vector values as strings
-					o_sID += std::to_string(vPixVal[0]);
-					o_sID += ',';
-					o_sID += std::to_string(vPixVal[1]);
-					o_sID += ',';
-					o_sID += std::to_string(vPixVal[2]);
-					o_sID += ',';
-				}
-			}
+			//		// Add the vector values as strings
+			//		o_sID += std::to_string(vPixVal[0]);
+			//		o_sID += ',';
+			//		o_sID += std::to_string(vPixVal[1]);
+			//		o_sID += ',';
+			//		o_sID += std::to_string(vPixVal[2]);
+			//		o_sID += ',';
+			//	}
+			//}
 		}
 	}
 };

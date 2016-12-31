@@ -1,0 +1,75 @@
+<!-- 
+
+This test configuration file defines how the test images should be classified 
+if we expect perfect results.
+
+-->
+
+<testConfig>
+  
+  <!-- Misc -->
+  <group name="Misc" doDisplay="false">
+    <member>Misc/spectrum.jpg</member>
+  </group>
+  
+  <!-- Batch 0 -->
+  <group name="Hair" doDisplay="false"><memberGenerator prefix="Batch0/hair" count="2" extension="bmp"/></group>
+
+  <!-- Batch 1 -->
+  <group name="Intel Inside"><memberGenerator prefix="Batch1/intelInside_" count="4" extension="jpg"/></group>
+  <group name="Isaac"><memberGenerator prefix="Batch1/isaacBeads_" count="4" extension="jpg"/></group>
+  <group name="Lock"><memberGenerator prefix="Batch1/lock0_" count="2" extension="jpg"/></group>
+  <group name="Mask"><memberGenerator prefix="Batch1/mask0_" count="6" extension="jpg"/></group>
+  <group name="Notepad" doDisplay="false"><memberGenerator prefix="Batch1/notepad0_" count="3" extension="jpg"/></group>
+  <group name="Symbol 0"><memberGenerator prefix="Batch1/symbol0_" count="6" extension="jpg"/></group>
+  <group name="Symbol 1"><memberGenerator prefix="Batch1/symbol1_" count="3" extension="jpg"/></group>
+  <group name="Symbol 2"><memberGenerator prefix="Batch1/symbol2_" count="3" extension="jpg"/></group>
+  <group name="Wall Plug"><memberGenerator prefix="Batch1/wallPlug_" count="5" extension="jpg"/></group>
+  <group name="Face"><memberGenerator prefix="Batch1/face0_" count="6" extension="jpg"/></group>
+
+  <!-- Batch 2 -->
+  <group name="Blue Bins">  <memberGenerator prefix="Batch2/bin_blue0_" count="3" extension="jpg"/> </group>
+  <group name="Trash Bin">  <memberGenerator prefix="Batch2/bin0_" count="4" extension="jpg"/> </group>
+  <group name="Bricks">     <memberGenerator prefix="Batch2/bricks0_" count="4" extension="jpg"/> </group>
+  <group name="Bush">       <memberGenerator prefix="Batch2/bush0_" count="3" extension="jpg"/> </group>
+  <group name="Defib">      <memberGenerator prefix="Batch2/defibrillator0_" count="3" extension="jpg"/> </group>
+  <group name="Dirt">       <memberGenerator prefix="Batch2/dirt0_" count="3" extension="jpg"/> </group>
+  <group name="Landscape Grass">
+    <memberGenerator prefix="Batch2/landscape_grass0_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/landscape_grass1_" count="2" extension="jpg"/> 
+  </group>
+  <group name="Sign Ad (Blue truck)"><memberGenerator prefix="Batch2/sign_ad0_" count="4" extension="jpg"/> </group>
+  <group name="Sign Bike">  <memberGenerator prefix="Batch2/sign_bike_" count="2" extension="jpg"/> </group>
+  <group name="Sign Danes">  <memberGenerator prefix="Batch2/sign_danes0_" count="4" extension="jpg"/> </group>
+  <group name="Sign Dominos">
+    <memberGenerator prefix="Batch2/sign_dominos0_" count="7" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_dominos1_" count="7" extension="jpg"/> 
+  </group>
+  <group name="Sign Elders"><memberGenerator prefix="Batch2/sign_elder0_" count="2" extension="jpg"/> </group>
+  <group name="Sign Fitness First">
+    <memberGenerator prefix="Batch2/sign_ff0_" count="5" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_ff1_" count="2" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_ff2_" count="2" extension="jpg"/> 
+  </group>
+  <group name="Sign Fish"><memberGenerator prefix="Batch2/sign_fish0_" count="3" extension="jpg"/> </group>
+  <group name="Sign Greggs">
+    <memberGenerator prefix="Batch2/sign_greggs0_" count="4" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_greggs1_" count="5" extension="jpg"/> 
+  </group>
+  <group name="Sign Hingley">
+    <memberGenerator prefix="Batch2/sign_hingley0_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_hingley1" count="4" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_hingley2" count="6" extension="jpg"/> 
+  </group>
+  <group name="Sign Hobs Meadow 1"> <memberGenerator prefix="Batch2/sign_hobsmeadow0_" count="2" extension="jpg"/> </group>
+  <group name="Sign Hobs Meadow 2"> <memberGenerator prefix="Batch2/sign_hobsmeadow1_" count="4" extension="jpg"/> </group>
+  <group name="Sign Left Only">     <memberGenerator prefix="Batch2/sign_leftOnly_" count="4" extension="jpg"/> </group>
+  <group name="Sign School">        <memberGenerator prefix="Batch2/sign_school0_" count="4" extension="jpg"/> </group>
+  <group name="Sign Speed Bump">    <memberGenerator prefix="Batch2/sign_speedBump_" count="3" extension="jpg"/> </group>
+  <group name="Sign Tesco">
+    <memberGenerator prefix="Batch2/sign_tesco0_" count="7" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_tesco1" count="4" extension="jpg"/> 
+  </group>
+  <group name="Sign Truck">         <memberGenerator prefix="Batch2/sign_truck0_" count="3" extension="jpg"/> </group>
+  <group name="Sign Winchcombe">    <memberGenerator prefix="Batch2/sign_winchcombe_" count="4" extension="jpg"/> </group>
+</testConfig>

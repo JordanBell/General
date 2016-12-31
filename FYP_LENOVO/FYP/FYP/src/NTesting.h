@@ -1,8 +1,9 @@
-#define CONFIG_FILEPATH "testConfig.xml"
+#define CONFIG_FILEPATH "testConfig - Acceptable.xml"
 #define OUTPUT_LOG_FILENAME "results.txt"
 
 using namespace rapidxml;
 using namespace std;
+using namespace std::chrono;
 
 namespace NTesting
 {
@@ -161,6 +162,8 @@ namespace NTesting
 
 	struct CTester
 	{
+		CTimer m_tTimer;
+
 		CConfig m_tConfig;
 		FILE* m_pResultsOutFile;
 
@@ -224,12 +227,20 @@ namespace NTesting
 				}
 
 				// Apply the trait handlers to build the Image ID
+
+				// Time how long it will take
+				m_tTimer.start();
+
 				string sImgID;
 				printf("%s...\n", sImageFilename.c_str());
 				ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tGrabcut: ");
+				ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tDimension Averages: ");
+				ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tColor Frequency: ");
+				ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tColor Snap: ");
 				i_tGroup.addResult(sImageFilename, sImgID);
 			}
 

@@ -84,6 +84,7 @@
     <ClInclude Include="opencv\build\include\opencv\highgui.h" />
     <ClInclude Include="opencv\build\include\opencv\ml.h" />
     <ClInclude Include="src\CBitset.h" />
+    <ClInclude Include="src\CTimer.h" />
     <ClInclude Include="src\CTraitHandler.h" />
     <ClInclude Include="src\CTraitHandler_ColorSnap.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
@@ -276,7 +277,8 @@
     <Text Include="results.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="testConfig.xml">
+    <Xml Include="testConfig - Acceptable.xml" />
+    <Xml Include="testConfig - Perfect.xml">
       <SubType>Designer</SubType>
     </Xml>
   </ItemGroup>

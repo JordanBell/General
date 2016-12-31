@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <chrono>
 
 // Windows Defines
 #if defined(_WIN32)
@@ -36,6 +37,7 @@
 #include "EHue.h"
 #include "Histogram.h"
 #include "util.h"
+#include "CTimer.h"
 
 // Core
 #include "CTraitHandler.h"
@@ -54,6 +56,9 @@ int main(int argc, char** argv )
 {
 	NTesting::CTester tTester;
 	tTester.run();
+	printf("Done.\n");
+	char c;
+	cin >> c;
 
 	return 0;
 }
