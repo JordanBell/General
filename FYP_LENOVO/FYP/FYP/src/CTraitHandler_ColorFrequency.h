@@ -11,54 +11,67 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 		// Create the sub-images and displays
 		m_tOut = Mat(1, 4, CV_8UC3);
 		const int k_iNumFrequencies = 4; // The top n colors we will consider as frequent
-		
-		// Create a histogram of the color-snapped image
-		Mat tHistImage;
-		makeHistogramHue(tHistImage, s_tImageColorSnapped);
 
-		/// Display
-		if(i_bDisplay)
-		{
-			namedWindow(i_sImgName + ": Hue Hist", CV_WINDOW_AUTOSIZE );
-			imshow(i_sImgName + ": Hue Hist", tHistImage);
-			waitKey(0); 
-		}
+		saveTo("ColorSnap", i_sImgName, getColorSnapped());
 
-		// Save to histogram images
-		string sResultDirectoryHist = "Results/Histogram_Hue/";
-		ensureDirectory(sResultDirectoryHist);
-		imwrite(sResultDirectoryHist + i_sImgName + ".bmp", tHistImage);
-		imwrite(s_sResultDirectory + "/Histogram_Hue.bmp", tHistImage);
+		Mat tBlurBox = s_tImage.clone();
+		Mat tBlurMedian = s_tImage.clone();
 
-		vector<Vec3b> tMostFrequentColors;
-		getMostFrequentColors(tMostFrequentColors, k_iNumFrequencies, s_tImageColorSnapped);
+		boxFilter(tBlurBox, tBlurBox, tBlurBox.type(), Size(3, 3));
+		medianBlur(tBlurMedian, tBlurMedian, 5);
 
-		for(unsigned int i = 0; i < k_iNumFrequencies && i < tMostFrequentColors.size(); i++)
-		{
-			m_tOut.at<Vec3b>(0, i)= tMostFrequentColors[i];
-		}
+		saveTo("Blur", i_sImgName, tBlurBox);
+		saveTo("BlurMedian", i_sImgName, tBlurMedian);
+
+		Mat tBlurBoxCS = getColorSnapped().clone();
+		Mat tBlurMedianCS = getColorSnapped().clone();
+
+		boxFilter(tBlurBoxCS, tBlurBoxCS, tBlurBoxCS.type(), Size(3, 3));
+		medianBlur(tBlurMedianCS, tBlurMedianCS, 5);
+
+		saveTo("BlurCS", i_sImgName, tBlurBoxCS);
+		saveTo("BlurMedianCS", i_sImgName, tBlurMedianCS);
 
 		if (i_bDisplay)
 		{
-			const int k_iMagnification = 100;
-			displayImage(i_sImgName + ": Most Frequent Colors", m_tOut, (float)k_iMagnification, (float)k_iMagnification); 
-			waitKey(0); 
+			displayImage("ColorSnap", getColorSnapped());
+			displayImage("Box Blur", tBlurBox);
+			displayImage("Median Blur", tBlurMedian); 
+			displayImage("Box Blur CS", tBlurBoxCS);
+			displayImage("Median Blur CS", tBlurMedianCS); 
+
+			waitKey(0);
 		}
 
-		// Ensure directories for the result directory
-		std::string sResultDirectory = s_sResultDirectory;
-		ensureDirectory(sResultDirectory);
+		//vector<Vec3b> tMostFrequentColors;
+		//getMostFrequentColors(tMostFrequentColors, k_iNumFrequencies, getColorSnapped());
 
-		// Ensure directory for this ITH's results
-		sResultDirectory += "Color/";
-		ensureDirectory(sResultDirectory);
+		//for(unsigned int i = 0; i < k_iNumFrequencies && i < tMostFrequentColors.size(); i++)
+		//{
+		//	m_tOut.at<Vec3b>(0, i)= tMostFrequentColors[i];
+		//}
 
-		// Save the images to this ITH's directory
-		imwrite(sResultDirectory + "mostFrequent.bmp", m_tOut);
+		//if (i_bDisplay)
+		//{
+		//	const int k_iMagnification = 100;
+		//	displayImage(i_sImgName + ": Most Frequent Colors", m_tOut, (float)k_iMagnification, (float)k_iMagnification); 
+		//	waitKey(0); 
+		//}
 
-		// Calculate the evaluation string
-		{
-			// TODO
-		}
+		//// Ensure directories for the result directory
+		//std::string sResultDirectory = s_sResultDirectory;
+		//ensureDirectory(sResultDirectory);
+
+		//// Ensure directory for this ITH's results
+		//sResultDirectory += "Color/";
+		//ensureDirectory(sResultDirectory);
+
+		//// Save the images to this ITH's directory
+		//imwrite(sResultDirectory + "mostFrequent.bmp", m_tOut);
+
+		//// Calculate the evaluation string
+		//{
+		//	// TODO
+		//}
 	}
 };

@@ -1,4 +1,4 @@
-﻿Build started 31/12/2016 16:41:22.
+﻿Build started 02/01/2017 21:01:56.
      1>Project "C:\Users\James\Documents\GitHub\General\FYP_LENOVO\FYP\FYP\FYP.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\James\Documents\GitHub\General\FYP_LENOVO\FYP\FYP\opencv\build\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt src\main.cpp
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.93
+Time Elapsed 00:00:03.09

@@ -15,7 +15,12 @@
 #define TEST_IMAGES_DIR TEST_IMAGES_DIR_QUICK
 #endif
 
+#define SAVE_INTO_LOCAL_FOLDER
+
 #define MAGNIFY_FACTOR 8.f
+
+// Color snap:
+#define CS_SEGMENT_SIZE 16
 
 // Functions
 #define ENSURE_DIR(i_sFilename) { int ensDirRes = ensureDirectory(i_sFilename); if(ensDirRes) return ensDirRes; }

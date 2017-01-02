@@ -1,0 +1,114 @@
+	-----	EMPTY	-----
+Group ID: Misc
+
+	-----	EMPTY	-----
+Group ID: Hair
+
+	-----	EMPTY	-----
+Group ID: Intel Inside
+
+	-----	EMPTY	-----
+Group ID: Isaac
+
+	-----	EMPTY	-----
+Group ID: Lock
+
+	-----	EMPTY	-----
+Group ID: Mask
+
+	-----	EMPTY	-----
+Group ID: Notepad
+
+	-----	EMPTY	-----
+Group ID: Symbols
+
+	-----	EMPTY	-----
+Group ID: Wall Plug
+
+	-----	EMPTY	-----
+Group ID: Face 1
+
+	-----	EMPTY	-----
+Group ID: Face 2
+
+	-----	EMPTY	-----
+Group ID: Trash Bin
+
+	-----	EMPTY	-----
+Group ID: Bricks
+
+	-----	EMPTY	-----
+Group ID: Bush
+
+	-----	EMPTY	-----
+Group ID: Defib
+
+	-----	EMPTY	-----
+Group ID: Landscape Grass
+
+	-----	EMPTY	-----
+Group ID: Sign Ad (Blue truck)
+
+	-----	EMPTY	-----
+Group ID: Sign Bike
+
+	-----	EMPTY	-----
+Group ID: Sign Danes
+
+	-----	EMPTY	-----
+Group ID: Sign Dominos 1
+
+	-----	EMPTY	-----
+Group ID: Sign Dominos 2
+
+	-----	EMPTY	-----
+Group ID: Sign Dominos 3
+
+	-----	EMPTY	-----
+Group ID: Sign Elders
+
+	-----	EMPTY	-----
+Group ID: Sign Fitness First 1
+
+	-----	EMPTY	-----
+Group ID: Sign Fitness First 2
+
+	-----	EMPTY	-----
+Group ID: Sign Fitness First 3
+
+	-----	EMPTY	-----
+Group ID: Sign Fish
+
+	-----	EMPTY	-----
+Group ID: Sign Greggs 1
+
+	-----	EMPTY	-----
+Group ID: Sign Greggs 2
+
+	-----	EMPTY	-----
+Group ID: Sign Hingley
+
+	-----	EMPTY	-----
+Group ID: Sign Hobs Meadow 1
+
+	-----	EMPTY	-----
+Group ID: Sign Hobs Meadow 2
+
+	-----	EMPTY	-----
+Group ID: Sign Left Only
+
+	-----	EMPTY	-----
+Group ID: Sign School
+
+	-----	EMPTY	-----
+Group ID: Sign Speed Bump
+
+	-----	EMPTY	-----
+Group ID: Sign Tesco 1
+
+	-----	EMPTY	-----
+Group ID: Sign Tesco 2
+
+	-----	EMPTY	-----
+Group ID: Sign Winchcombe
+

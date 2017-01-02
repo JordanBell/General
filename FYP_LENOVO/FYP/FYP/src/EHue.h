@@ -209,18 +209,88 @@ void snapColors(Vec3b& io_vColor, const int i_iChannelDivisions)
 	io_vColor[2] = (char)(io_vColor[2] * i_iChannelDivisions);
 }
 
+float lerp(float a, float b, float mmin, float mmax, float m)
+{
+	// TODO
+	float factor = (m - mmin) / (mmax - mmin);
+	return a + (b - a) * factor;
+}
+
 // i_iChannelDivisions: The number of fractions of 255 we will snap each channel to
 void snapColorsHLS(Vec3b& io_vColor, const int i_iChannelDivisions)
 {
+	float H = io_vColor[0];
+	float L = io_vColor[1];
+	float S = io_vColor[2];
+
 	// Hue
 	io_vColor[0] = (char)(io_vColor[0] / i_iChannelDivisions);
 	io_vColor[0] = (char)(io_vColor[0] * i_iChannelDivisions);
 
-	// Lightness
-	io_vColor[1] = 127;
-	io_vColor[1] = 127;
+	// Determine if we're black/grey/white
+	if(S < 25)
+	{
+		// Definitely desaturated
+		if(L < 50)
+		{
+			// Set to black
+			io_vColor[1] = 0;
+			io_vColor[2] = 0;
+		}
+		else if (L > 200)
+		{
+			// Set to white
+			io_vColor[1] = 255;
+			io_vColor[2] = 0;
+		}
+		else
+		{
+			// Set to grey
+			io_vColor[1] = 127;
+			io_vColor[2] = 0;
+		}
+	}
+	else
+	{
+		// Saturated, but may still be black/white 45S 15L
+		if(L < 50)
+		{
+			// Is black if below S threshold
+			bool b = false;
+			if(fabsf(L - 38.5f) < 1.f)
+			{
+				if(fabsf(S - 122.7f) < 1.f)
+				{
+					b = true;
+				}
+			}
+			float fSThreshold = lerp(25, 255, 50, 18, L);
+			if(S < fSThreshold)
+			{
+				// Set to black
+				io_vColor[1] = 0;
+				io_vColor[2] = 0;
+			}
+		}
+		else if(L > 205)
+		{
+			// Is white if below S threshold
+			float fSThreshold = lerp(25, 255, 205, 237, L);
+			if(S < fSThreshold)
+			{
+				// Set to white
+				io_vColor[1] = 255;
+				io_vColor[2] = 0;
+			}
+		}
+		else
+		{
+			// Normal color; snap normally
+			// Lightness
+			io_vColor[1] = 127;
 
-	// Saturation
-	io_vColor[2] = 255;
-	io_vColor[2] = 255;
+			// Saturation
+			io_vColor[2] = 255;
+		}
+	}
 }

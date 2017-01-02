@@ -233,15 +233,15 @@ namespace NTesting
 
 				string sImgID;
 				printf("%s...\n", sImageFilename.c_str());
-				ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tGrabcut: ");
-				ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tDimension Averages: ");
+				//ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tGrabcut: ");
+				//ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tDimension Averages: ");
 				ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				m_tTimer.print_lap("\tColor Frequency: ");
-				ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tColor Snap: ");
-				i_tGroup.addResult(sImageFilename, sImgID);
+				//ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tColor Snap: ");
+				//i_tGroup.addResult(sImageFilename, sImgID);
 			}
 
 			i_tGroup.printResults(m_pResultsOutFile);

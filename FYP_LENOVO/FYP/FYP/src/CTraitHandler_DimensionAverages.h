@@ -50,24 +50,24 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 		}
 
 
-		// Ensure directories for the result directory
-		std::string sResultDirectory = s_sResultDirectory;
-		ensureDirectory(sResultDirectory);
+		//// Ensure directories for the result directory
+		//std::string sResultDirectory = s_sResultDirectory;
+		//ensureDirectory(sResultDirectory);
 
-		// Ensure directory for this ITH's results
-		sResultDirectory += "DimAvg/";
-		ensureDirectory(sResultDirectory);
-		
-		// Save the images to this ITH's directory
-		imwrite(sResultDirectory + "x.bmp", m_tVert);
-		imwrite(sResultDirectory + "y.bmp", m_tHori);
-#ifdef RECONSTRUCT
-		// Save the image to the reconstructed file
-		imwrite(sResultDirectory + "reconstructed.bmp", reconstructed);
-#else
-		// Delete the reconstruction file (if one exists)
-		DeleteFile((sResultDirectory + "reconstructed.bmp").c_str());
-#endif
+		//// Ensure directory for this ITH's results
+		//sResultDirectory += "DimAvg/";
+		//ensureDirectory(sResultDirectory);
+		//
+		//// Save the images to this ITH's directory
+		//imwrite(sResultDirectory + "x.bmp", m_tVert);
+		//imwrite(sResultDirectory + "y.bmp", m_tHori);
+//#ifdef RECONSTRUCT
+//		// Save the image to the reconstructed file
+//		imwrite(sResultDirectory + "reconstructed.bmp", reconstructed);
+//#else
+//		// Delete the reconstruction file (if one exists)
+//		DeleteFile((sResultDirectory + "reconstructed.bmp").c_str());
+//#endif
 
 		// Calculate the evaluation string
 		{
