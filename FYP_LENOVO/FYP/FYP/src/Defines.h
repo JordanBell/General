@@ -21,6 +21,10 @@
 
 // Color snap:
 #define CS_SEGMENT_SIZE 16
+//#define CS_BLUR_SIZE 3
+
+#define RADIAL_WEIGHTING_EXPONENT 3
+#define RADIAL_WEIGHTING_MIN 0.1f
 
 // Functions
 #define ENSURE_DIR(i_sFilename) { int ensDirRes = ensureDirectory(i_sFilename); if(ensDirRes) return ensDirRes; }

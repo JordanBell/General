@@ -91,7 +91,6 @@
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h" />
     <ClInclude Include="src\CTraitHandler_Grabcut.h" />
     <ClInclude Include="src\Defines.h" />
-    <ClInclude Include="src\EHue.h" />
     <ClInclude Include="src\Histogram.h" />
     <ClInclude Include="src\NTesting.h" />
     <ClInclude Include="src\rapidxml\rapidxml.hpp" />
@@ -277,7 +276,9 @@
     <Text Include="results.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="testConfig - Acceptable.xml" />
+    <Xml Include="testConfig - Acceptable.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="testConfig - Perfect.xml">
       <SubType>Designer</SubType>
     </Xml>

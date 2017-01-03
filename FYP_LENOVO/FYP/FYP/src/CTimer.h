@@ -38,7 +38,7 @@ struct CTimer
 		}
 		else
 		{
-			if(lap_time.count() < 1000)
+			if(lap_time.count() > 1000)
 			{
 				int _milliseconds = lap_time.count() % 1000;
 				int _seconds = lap_time.count() / 1000;

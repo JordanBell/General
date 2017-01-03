@@ -28,11 +28,9 @@ conditions/angles, giving more room for error.
     <member>Batch1/mask0_2.jpg</member>
   </group>
   <group name="Notepad" doDisplay="false"><memberGenerator prefix="Batch1/notepad0_" count="3" extension="jpg"/></group>
-  <group name="Symbols">
-    <memberGenerator prefix="Batch1/symbol0_" count="6" extension="jpg"/>
-    <memberGenerator prefix="Batch1/symbol1_" count="3" extension="jpg"/>
-    <memberGenerator prefix="Batch1/symbol2_" count="3" extension="jpg"/>
-  </group>
+  <group name="Symbols 1"> <memberGenerator prefix="Batch1/symbol0_" count="6" extension="jpg"/> </group>
+  <group name="Symbols 2"> <memberGenerator prefix="Batch1/symbol1_" count="3" extension="jpg"/> </group>
+  <group name="Symbols 3"> <memberGenerator prefix="Batch1/symbol2_" count="3" extension="jpg"/> </group>
   <group name="Wall Plug"><memberGenerator prefix="Batch1/wallPlug_" count="5" extension="jpg"/></group>
   <group name="Face 1">
     <member>Batch1/face0_1.jpg</member>

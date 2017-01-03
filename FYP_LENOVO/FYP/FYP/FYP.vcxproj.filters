@@ -92,9 +92,6 @@
     <ClInclude Include="src\util.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\EHue.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Histogram.h">
       <Filter>src</Filter>
     </ClInclude>

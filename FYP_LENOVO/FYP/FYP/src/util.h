@@ -12,6 +12,26 @@ bool assertbr(const bool i_b, const string& msg)
 	return i_b;
 }
 
+template <typename T>
+void clamp(T& value, const T& min, const T& max)
+{
+	if(value < min)
+	{
+		value = min;
+	}
+	else if(value > max)
+	{
+		value = max;
+	}
+}
+
+float lerp(float a, float b, float mmin, float mmax, float m)
+{
+	// TODO
+	float factor = (m - mmin) / (mmax - mmin);
+	return a + (b - a) * factor;
+}
+
 // Ensure that a directory exists!
 static int ensureDirectory(const string& i_sFilename)
 {
@@ -116,68 +136,104 @@ void setXYAsMeanOf(Mat& dst, int x, int y, const Mat& src)
 	dst.at<Vec3b>(y, x) = vAverage;
 }
 
-struct CFrequencyCounter
+float getRadialWeight(float i_fPercentageDistanceFromCentre)
 {
-	vector<pair<Vec3b, int>> m_frequencies;
+	float fWeight = 1.f - pow(i_fPercentageDistanceFromCentre, RADIAL_WEIGHTING_EXPONENT);
+	clamp(fWeight, 0.f, 1.f);
+	fWeight *= 1.f - RADIAL_WEIGHTING_MIN;
+	fWeight += RADIAL_WEIGHTING_MIN;
+	return fWeight;
+}
 
-	void addColor(const Vec3b& i_vColor)
+float getRadialWeight(float i_fDistanceFromCenter, float i_fDiameter)
+{
+	return getRadialWeight(i_fDistanceFromCenter / (i_fDiameter / 2.f));
+}
+
+// i_iChannelDivisions: The number of fractions of 255 we will snap each channel to
+void snapColorsHLS(Vec3b& io_vColor, const int i_iChannelDivisions)
+{
+	Vec3b tStart = io_vColor;
+	float H = io_vColor[0];
+	float L = io_vColor[1];
+	float S = io_vColor[2];
+
+	// Determine if we're black/grey/white
+	if(S < 25)
 	{
-		for(pair<Vec3b, int>& tPair : m_frequencies)
+		// Definitely desaturated
+		if(L < 50)
 		{
-			if(tPair.first == i_vColor)
-			{
-				tPair.second++;
-				return;
-			}
+			// Set to black
+			io_vColor[0] = 0;
+			io_vColor[1] = 0;
+			io_vColor[2] = 0;
+			return;
 		}
-
-		m_frequencies.push_back(pair<Vec3b, int>(i_vColor, 1));
+		else if (L > 200)
+		{
+			// Set to white
+			io_vColor[0] = 0;
+			io_vColor[1] = 255;
+			io_vColor[2] = 0;
+			return;
+		}
+		else
+		{
+			// Set to grey
+			io_vColor[0] = 0;
+			io_vColor[1] = 127;
+			io_vColor[2] = 0;
+			return;
+		}
 	}
 
-	void getMostFrequent(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_imgSrc)
+	// Saturated, but may still be black/white 45S 15L
+	if(L < 50) // Very dark
 	{
-		// Build a sorted map of the frequencies
-		multimap<int, Vec3b> mCounterColors;
-		for(pair<Vec3b, int>& tPair : m_frequencies)
+		// Is black if below S threshold
+		float fSThreshold = lerp(25, 255, 50, 18, L);
+		if(S < fSThreshold)
 		{
-			mCounterColors.emplace(tPair.second, tPair.first);
-		}
-
-		// Add the n most frequent values
-		int i = 0;
-		multimap<int, Vec3b>::iterator it = mCounterColors.end();
-		it--;
-		while(i < i_iNumToGet && it != mCounterColors.begin())
-		{
-			o_vMostFrequent.push_back(it->second); // Add this value to the vector of Most Frequent colors
-
-			// Increase counter and iterator
-			++i;
-			--it;
-		}
-	}
-};
-
-void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_tSrc)
-{
-	/*o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	o_vMostFrequent.push_back(Vec3b(0, 0, 0));
-	return;*/
-
-	// Track how many times each color has been encountered
-	CFrequencyCounter tCounter;
-
-	// Build the frequency map
-	for(int i = 0; i < i_tSrc.cols; i++)
-	{
-		for(int j = 0; j < i_tSrc.rows; j++)
-		{
-			Vec3b vColor = i_tSrc.at<Vec3b>(j, i);
-			tCounter.addColor(vColor);
+			// Set to black
+			io_vColor[0] = 0;
+			io_vColor[1] = 0;
+			io_vColor[2] = 0;
+			return;
 		}
 	}
 	
-	tCounter.getMostFrequent(o_vMostFrequent, i_iNumToGet, i_tSrc);
+	if(L > 205) // Very light
+	{
+		// Is white if below S threshold
+		float fSThreshold = lerp(25, 255, 205, 237, L);
+		if(S < fSThreshold)
+		{
+			// Set to white
+			io_vColor[0] = 0;
+			io_vColor[1] = 255;
+			io_vColor[2] = 0;
+			return;
+		}
+	}
+	
+	// Normal color; snap normally
+	{
+		// Hue
+		io_vColor[0] = io_vColor[0] - (char)(io_vColor[0] % i_iChannelDivisions);
+
+		// Lightness
+		io_vColor[1] = 127;
+
+		// Saturation
+		io_vColor[2] = 255;
+	}
+}
+
+Vec3b toHLS(const Vec3b& i_tAsBGR)
+{
+	Mat tHLS(1, 1, CV_8UC3);
+	tHLS.at<Vec3b>(0, 0) = i_tAsBGR;
+	cvtColor(tHLS, tHLS, CV_BGR2HLS);
+	return tHLS.at<Vec3b>(0, 0);
 }

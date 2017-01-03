@@ -241,7 +241,8 @@ namespace NTesting
 				m_tTimer.print_lap("\tColor Frequency: ");
 				//ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				//m_tTimer.print_lap("\tColor Snap: ");
-				//i_tGroup.addResult(sImageFilename, sImgID);
+
+				i_tGroup.addResult(sImageFilename, sImgID);
 			}
 
 			i_tGroup.printResults(m_pResultsOutFile);

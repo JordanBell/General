@@ -34,7 +34,6 @@
 
 // Utilities
 #include "CBitset.h"
-#include "EHue.h"
 #include "Histogram.h"
 #include "util.h"
 #include "CTimer.h"

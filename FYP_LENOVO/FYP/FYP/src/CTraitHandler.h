@@ -161,14 +161,14 @@ struct CTraitHandler
 			s_pImageColorSnapped = new Mat(s_tImage.clone());
 
 			// Perform color snap
-			{
-
-			}
 			cvtColor(*s_pImageColorSnapped, *s_pImageColorSnapped, CV_BGR2HLS);
 			for_each(s_pImageColorSnapped->begin<Vec3b>(), s_pImageColorSnapped->end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, CS_SEGMENT_SIZE); });
 			cvtColor(*s_pImageColorSnapped, *s_pImageColorSnapped, CV_HLS2BGR);
 
-			//for_each(s_pImageColorSnapped->begin<Vec3b>(), s_pImageColorSnapped->end<Vec3b>(), [] (Vec3b& io_vColor) { snapColors(io_vColor, 1); });
+#if defined(CS_BLUR_SIZE)
+			// Perform median blur to remove unimportant details
+			medianBlur(*s_pImageColorSnapped, *s_pImageColorSnapped, CS_BLUR_SIZE);  
+#endif 
 		}
 
 		return *s_pImageColorSnapped;

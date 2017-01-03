@@ -1,0 +1,229 @@
+	+++++	Misc	+++++
+	Count: 1
+	ID: freq.misc | 
+
+	+++++	Hair	+++++
+	Count: 2
+	ID: freq.most_hue: 96 | 
+
+	+++++	Intel Inside	+++++
+	Count: 4
+	ID: freq.most_hue: 96 | 
+
+	+++++	Isaac	+++++
+	Count: 2
+	ID: freq.misc | 
+
+	+++++	Lock	+++++
+	Count: 2
+	ID: freq.misc | 
+
+	-----	Mask [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.most_hue: 16 | 
+			1. mask0_0
+
+		ID: freq.misc | 
+			1. mask0_2
+
+
+	-----	Notepad [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.most_hue: 16 | 
+			1. notepad0_0
+
+		ID: freq.misc | 
+			1. notepad0_1
+			2. notepad0_2
+
+
+	+++++	Symbols 1	+++++
+	Count: 6
+	ID: freq.misc | 
+
+	+++++	Symbols 2	+++++
+	Count: 3
+	ID: freq.most_hue: 16 | 
+
+	+++++	Symbols 3	+++++
+	Count: 3
+	ID: freq.most_hue: 16 | 
+
+	+++++	Wall Plug	+++++
+	Count: 5
+	ID: freq.most_hue: 16 | 
+
+	+++++	Face 1	+++++
+	Count: 2
+	ID: freq.most_hue: 0 | 
+
+	+++++	Face 2	+++++
+	Count: 2
+	ID: freq.most_hue: 0 | 
+
+	+++++	Trash Bin	+++++
+	Count: 3
+	ID: freq.most_hue: 0 | 
+
+	-----	Bricks [~Fragmented]	-----
+	Success Rating: 1%
+	Image Count: 4
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.misc | 
+			1. bricks0_0
+			2. bricks0_1
+			3. bricks0_3
+
+		ID: freq.most_hue: 0 | 
+			1. bricks0_2
+
+
+	+++++	Bush	+++++
+	Count: 3
+	ID: freq.misc | 
+
+	+++++	Defib	+++++
+	Count: 3
+	ID: freq.misc | 
+
+	+++++	Landscape Grass	+++++
+	Count: 3
+	ID: freq.misc | 
+
+	+++++	Sign Ad (Blue truck)	+++++
+	Count: 4
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign Bike	+++++
+	Count: 2
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign Danes	+++++
+	Count: 3
+	ID: freq.most_hue: 16 | 
+
+	+++++	Sign Dominos 1	+++++
+	Count: 3
+	ID: freq.most_hue: 0 | 
+
+	+++++	Sign Dominos 2	+++++
+	Count: 2
+	ID: freq.misc | 
+
+	+++++	Sign Dominos 3	+++++
+	Count: 2
+	ID: freq.misc | 
+
+	+++++	Sign Elders	+++++
+	Count: 2
+	ID: freq.most_hue: 16 | 
+
+	+++++	Sign Fitness First 1	+++++
+	Count: 5
+	ID: freq.most_hue: 176 | 
+
+	-----	Sign Fitness First 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.misc | 
+			1. sign_ff1_0
+
+		ID: freq.most_hue: 160 | 
+			1. sign_ff1_1
+
+
+	+++++	Sign Fitness First 3	+++++
+	Count: 2
+	ID: freq.most_hue: 0 | 
+
+	-----	Sign Fish [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.misc | 
+			1. sign_fish0_0
+			2. sign_fish0_1
+
+		ID: freq.most_hue: 0 | 
+			1. sign_fish0_2
+
+
+	+++++	Sign Greggs 1	+++++
+	Count: 4
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign Greggs 2	+++++
+	Count: 2
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign Hingley	+++++
+	Count: 3
+	ID: freq.most_hue: 96 | 
+
+	-----	Sign Hobs Meadow 1 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.misc | 
+			1. sign_hobsmeadow0_0
+
+		ID: freq.most_hue: 0 | 
+			1. sign_hobsmeadow0_1
+
+
+	-----	Sign Hobs Meadow 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.misc | 
+			1. sign_hobsmeadow1_1
+
+		ID: freq.most_hue: 0 | 
+			1. sign_hobsmeadow1_2
+
+
+	+++++	Sign Left Only	+++++
+	Count: 4
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign School	+++++
+	Count: 2
+	ID: freq.misc | 
+
+	+++++	Sign Speed Bump	+++++
+	Count: 2
+	ID: freq.most_hue: 96 | 
+
+	+++++	Sign Tesco 1	+++++
+	Count: 4
+	ID: freq.misc | 
+
+	+++++	Sign Tesco 2	+++++
+	Count: 3
+	ID: freq.most_hue: 96 | 
+
+	-----	Sign Winchcombe [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: freq.most_hue: 0 | 
+			1. sign_winchcombe_0
+			2. sign_winchcombe_2
+
+		ID: freq.misc | 
+			1. sign_winchcombe_1
+
+
