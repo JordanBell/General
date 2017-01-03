@@ -41,7 +41,6 @@
 // Core
 #include "CTraitHandler.h"
 #include "CTraitHandler_DimensionAverages.h"
-#include "CTraitHandler_ColorSnap.h"
 #include "CTraitHandler_ColorFrequency.h"
 #include "CTraitHandler_Grabcut.h"
 

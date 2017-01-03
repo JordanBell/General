@@ -1,46 +1,64 @@
 	+++++	Misc	+++++
 	Count: 1
-	ID: freq.misc | 
+	ID: V.hdc: 2 | H.hdc: 2 | 
 
-	+++++	Hair	+++++
-	Count: 2
-	ID: freq.most_hue: 96 | 
-
-	+++++	Intel Inside	+++++
-	Count: 4
-	ID: freq.most_hue: 96 | 
-
-	+++++	Isaac	+++++
-	Count: 2
-	ID: freq.misc | 
-
-	+++++	Lock	+++++
-	Count: 2
-	ID: freq.misc | 
-
-	-----	Mask [~Fragmented]	-----
+	-----	Hair [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 2
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.most_hue: 16 | 
-			1. mask0_0
+		ID: V.hdc: 3 | H.hdc: 1 | 
+			1. hair0
 
-		ID: freq.misc | 
-			1. mask0_2
+		ID: V.hdc: 5 | H.hdc: 1 | 
+			1. hair1
 
+
+	+++++	Intel Inside	+++++
+	Count: 4
+	ID: V.hdc: 0 | H.hdc: 1 | 
+
+	-----	Isaac [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 2 | H.hdc: 3 | 
+			1. isaacBeads_1
+
+		ID: V.hdc: 3 | H.hdc: 2 | 
+			1. isaacBeads_2
+
+
+	-----	Lock [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 0 | H.hdc: 0 | 
+			1. lock0_0
+
+		ID: V.hdc: 2 | H.hdc: 0 | 
+			1. lock0_1
+
+
+	+++++	Mask	+++++
+	Count: 2
+	ID: V.hdc: 0 | H.hdc: 0 | 
 
 	-----	Notepad [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 3
-	Unique Count: 2
+	Unique Count: 3
 	Unique IDs:
-		ID: freq.most_hue: 16 | 
+		ID: V.hdc: 0 | H.hdc: 0 | 
 			1. notepad0_0
 
-		ID: freq.misc | 
+		ID: V.hdc: 0 | H.hdc: 1 | 
 			1. notepad0_1
-			2. notepad0_2
+
+		ID: V.hdc: 0 | H.hdc: 2 | 
+			1. notepad0_2
 
 
 	-----	Symbols 1 [~Fragmented]	-----
@@ -48,149 +66,268 @@
 	Image Count: 6
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 0 | H.hdc: 2 | 
 			1. symbol0_0
-			2. symbol0_4
-			3. symbol0_5
 
-		ID: freq.most_hue: 16 | 
+		ID: V.hdc: 0 | H.hdc: 0 | 
 			1. symbol0_1
 			2. symbol0_2
 			3. symbol0_3
+			4. symbol0_4
+			5. symbol0_5
 
 
 	+++++	Symbols 2	+++++
 	Count: 3
-	ID: freq.most_hue: 16 | 
+	ID: V.hdc: 0 | H.hdc: 0 | 
 
 	+++++	Symbols 3	+++++
 	Count: 3
-	ID: freq.most_hue: 16 | 
+	ID: V.hdc: 0 | H.hdc: 0 | 
 
 	+++++	Wall Plug	+++++
 	Count: 5
-	ID: freq.most_hue: 16 | 
+	ID: V.hdc: 0 | H.hdc: 0 | 
 
 	+++++	Face 1	+++++
 	Count: 2
-	ID: freq.most_hue: 0 | 
+	ID: V.hdc: 0 | H.hdc: 1 | 
 
-	+++++	Face 2	+++++
-	Count: 2
-	ID: freq.most_hue: 0 | 
-
-	+++++	Trash Bin	+++++
-	Count: 3
-	ID: freq.most_hue: 0 | 
-
-	-----	Bricks [~Fragmented]	-----
-	Success Rating: 1%
-	Image Count: 4
+	-----	Face 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 3 | H.hdc: 3 | 
+			1. face0_4
+
+		ID: V.hdc: 1 | H.hdc: 3 | 
+			1. face0_5
+
+
+	-----	Trash Bin [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 4 | H.hdc: 1 | 
+			1. bin0_1
+			2. bin0_2
+
+		ID: V.hdc: 4 | H.hdc: 2 | 
+			1. bin0_3
+
+
+	-----	Bricks [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 4
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 3 | H.hdc: 4 | 
 			1. bricks0_0
-			2. bricks0_1
-			3. bricks0_3
+			2. bricks0_2
 
-		ID: freq.most_hue: 0 | 
-			1. bricks0_2
+		ID: V.hdc: 2 | H.hdc: 3 | 
+			1. bricks0_1
+
+		ID: V.hdc: 3 | H.hdc: 3 | 
+			1. bricks0_3
 
 
-	+++++	Bush	+++++
-	Count: 3
-	ID: freq.misc | 
+	-----	Bush [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 1 | H.hdc: 1 | 
+			1. bush0_0
 
-	+++++	Defib	+++++
-	Count: 3
-	ID: freq.misc | 
+		ID: V.hdc: 3 | H.hdc: 2 | 
+			1. bush0_1
 
-	+++++	Landscape Grass	+++++
-	Count: 3
-	ID: freq.misc | 
+		ID: V.hdc: 3 | H.hdc: 3 | 
+			1. bush0_2
+
+
+	-----	Defib [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 0 | H.hdc: 2 | 
+			1. defibrillator0_0
+
+		ID: V.hdc: 4 | H.hdc: 2 | 
+			1. defibrillator0_1
+
+		ID: V.hdc: 3 | H.hdc: 3 | 
+			1. defibrillator0_2
+
+
+	-----	Landscape Grass [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 2 | H.hdc: 1 | 
+			1. landscape_grass0_0
+
+		ID: V.hdc: 0 | H.hdc: 1 | 
+			1. landscape_grass0_1
+
+		ID: V.hdc: 3 | H.hdc: 4 | 
+			1. landscape_grass0_2
+
 
 	+++++	Sign Ad (Blue truck)	+++++
 	Count: 4
-	ID: freq.most_hue: 96 | 
+	ID: V.hdc: 0 | H.hdc: 1 | 
 
 	+++++	Sign Bike	+++++
 	Count: 2
-	ID: freq.most_hue: 96 | 
+	ID: V.hdc: 0 | H.hdc: 1 | 
 
-	+++++	Sign Danes	+++++
-	Count: 3
-	ID: freq.most_hue: 16 | 
+	-----	Sign Danes [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 1 | H.hdc: 3 | 
+			1. sign_danes0_0
 
-	+++++	Sign Dominos 1	+++++
-	Count: 3
-	ID: freq.most_hue: 0 | 
+		ID: V.hdc: 0 | H.hdc: 3 | 
+			1. sign_danes0_1
 
-	+++++	Sign Dominos 2	+++++
-	Count: 2
-	ID: freq.misc | 
+		ID: V.hdc: 1 | H.hdc: 1 | 
+			1. sign_danes0_2
 
-	+++++	Sign Dominos 3	+++++
-	Count: 2
-	ID: freq.misc | 
+
+	-----	Sign Dominos 1 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 6 | H.hdc: 3 | 
+			1. sign_dominos0_2
+			2. sign_dominos0_5
+
+		ID: V.hdc: 5 | H.hdc: 3 | 
+			1. sign_dominos0_3
+
+
+	-----	Sign Dominos 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 7 | H.hdc: 3 | 
+			1. sign_dominos1_0
+
+		ID: V.hdc: 6 | H.hdc: 2 | 
+			1. sign_dominos1_1
+
+
+	-----	Sign Dominos 3 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 5 | H.hdc: 3 | 
+			1. sign_dominos1_5
+
+		ID: V.hdc: 6 | H.hdc: 3 | 
+			1. sign_dominos1_6
+
 
 	+++++	Sign Elders	+++++
 	Count: 2
-	ID: freq.most_hue: 16 | 
+	ID: V.hdc: 0 | H.hdc: 0 | 
 
 	+++++	Sign Fitness First 1	+++++
 	Count: 5
-	ID: freq.most_hue: 176 | 
+	ID: V.hdc: 0 | H.hdc: 2 | 
 
 	-----	Sign Fitness First 2 [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 2
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 1 | H.hdc: 2 | 
 			1. sign_ff1_0
 
-		ID: freq.most_hue: 160 | 
+		ID: V.hdc: 4 | H.hdc: 1 | 
 			1. sign_ff1_1
 
 
 	+++++	Sign Fitness First 3	+++++
 	Count: 2
-	ID: freq.most_hue: 0 | 
+	ID: V.hdc: 2 | H.hdc: 4 | 
 
 	-----	Sign Fish [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 3
-	Unique Count: 2
+	Unique Count: 3
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 4 | H.hdc: 4 | 
 			1. sign_fish0_0
-			2. sign_fish0_1
 
-		ID: freq.most_hue: 0 | 
+		ID: V.hdc: 3 | H.hdc: 4 | 
+			1. sign_fish0_1
+
+		ID: V.hdc: 1 | H.hdc: 3 | 
 			1. sign_fish0_2
 
 
-	+++++	Sign Greggs 1	+++++
-	Count: 4
-	ID: freq.most_hue: 96 | 
+	-----	Sign Greggs 1 [~Fragmented]	-----
+	Success Rating: 1%
+	Image Count: 4
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 0 | H.hdc: 1 | 
+			1. sign_greggs0_0
+			2. sign_greggs0_1
+			3. sign_greggs0_2
 
-	+++++	Sign Greggs 2	+++++
-	Count: 2
-	ID: freq.most_hue: 96 | 
+		ID: V.hdc: 0 | H.hdc: 3 | 
+			1. sign_greggs0_3
 
-	+++++	Sign Hingley	+++++
-	Count: 3
-	ID: freq.most_hue: 96 | 
+
+	-----	Sign Greggs 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 1 | H.hdc: 4 | 
+			1. sign_greggs1_0
+
+		ID: V.hdc: 0 | H.hdc: 3 | 
+			1. sign_greggs1_1
+
+
+	-----	Sign Hingley [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 0 | H.hdc: 1 | 
+			1. sign_hingley0_0
+
+		ID: V.hdc: 0 | H.hdc: 3 | 
+			1. sign_hingley0_1
+
+		ID: V.hdc: 0 | H.hdc: 2 | 
+			1. sign_hingley0_2
+
 
 	-----	Sign Hobs Meadow 1 [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 2
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 0 | H.hdc: 1 | 
 			1. sign_hobsmeadow0_0
 
-		ID: freq.most_hue: 0 | 
+		ID: VH.nop | 
 			1. sign_hobsmeadow0_1
 
 
@@ -199,43 +336,90 @@
 	Image Count: 2
 	Unique Count: 2
 	Unique IDs:
-		ID: freq.misc | 
+		ID: V.hdc: 3 | H.hdc: 4 | 
 			1. sign_hobsmeadow1_1
 
-		ID: freq.most_hue: 0 | 
+		ID: V.hdc: 2 | H.hdc: 3 | 
 			1. sign_hobsmeadow1_2
 
 
-	+++++	Sign Left Only	+++++
-	Count: 4
-	ID: freq.most_hue: 96 | 
+	-----	Sign Left Only [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 4
+	Unique Count: 4
+	Unique IDs:
+		ID: V.hdc: 2 | H.hdc: 1 | 
+			1. sign_leftOnly_0
+
+		ID: V.hdc: 3 | H.hdc: 1 | 
+			1. sign_leftOnly_1
+
+		ID: V.hdc: 1 | H.hdc: 1 | 
+			1. sign_leftOnly_2
+
+		ID: V.hdc: 2 | H.hdc: 3 | 
+			1. sign_leftOnly_3
+
 
 	+++++	Sign School	+++++
 	Count: 2
-	ID: freq.misc | 
+	ID: V.hdc: 7 | H.hdc: 4 | 
 
-	+++++	Sign Speed Bump	+++++
-	Count: 2
-	ID: freq.most_hue: 96 | 
+	-----	Sign Speed Bump [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: V.hdc: 5 | H.hdc: 2 | 
+			1. sign_speedBump_0
 
-	+++++	Sign Tesco 1	+++++
-	Count: 4
-	ID: freq.misc | 
+		ID: V.hdc: 4 | H.hdc: 1 | 
+			1. sign_speedBump_1
 
-	+++++	Sign Tesco 2	+++++
-	Count: 3
-	ID: freq.most_hue: 96 | 
+
+	-----	Sign Tesco 1 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 4
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 1 | H.hdc: 6 | 
+			1. sign_tesco0_3
+			2. sign_tesco0_6
+
+		ID: V.hdc: 1 | H.hdc: 3 | 
+			1. sign_tesco0_4
+
+		ID: V.hdc: 1 | H.hdc: 7 | 
+			1. sign_tesco0_5
+
+
+	-----	Sign Tesco 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: V.hdc: 4 | H.hdc: 5 | 
+			1. sign_tesco1_1
+
+		ID: V.hdc: 4 | H.hdc: 4 | 
+			1. sign_tesco1_2
+
+		ID: V.hdc: 5 | H.hdc: 5 | 
+			1. sign_tesco1_3
+
 
 	-----	Sign Winchcombe [~Fragmented]	-----
 	Success Rating: 0%
 	Image Count: 3
-	Unique Count: 2
+	Unique Count: 3
 	Unique IDs:
-		ID: freq.most_hue: 0 | 
+		ID: V.hdc: 0 | H.hdc: 4 | 
 			1. sign_winchcombe_0
-			2. sign_winchcombe_2
 
-		ID: freq.misc | 
+		ID: V.hdc: 0 | H.hdc: 5 | 
 			1. sign_winchcombe_1
+
+		ID: V.hdc: 0 | H.hdc: 3 | 
+			1. sign_winchcombe_2
 
 

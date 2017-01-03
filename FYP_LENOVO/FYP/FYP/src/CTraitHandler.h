@@ -28,9 +28,8 @@ struct CTraitHandler
 		//s_lpAllHandlers.erase(s_lpAllHandlers.begin() + m_iInstanceIndex);
 	}
 
-	static void makeInputImageValid(Mat& io_tImage)
+	static void resizeToValid(Mat& io_tImage)
 	{
-		// 1. Resize
 		float fWidth = io_tImage.cols;
 		float fHeight = io_tImage.rows;
 
@@ -52,41 +51,6 @@ struct CTraitHandler
 		Size tNewSize((int)fWidth, (int)fHeight);
 		resize(io_tImage, tResized, tNewSize); 
 		io_tImage = tResized;
-
-		// 2. Posterize (TODO)
-		{
-			/*Mat t0 = io_tImage.clone();
-			cvtColor(t0, t0, CV_BGR2HLS);
-			for_each(t0.begin<Vec3b>(), t0.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 32); });
-			cvtColor(t0, t0, CV_HLS2BGR);
-			Mat t1 = io_tImage.clone();
-			cvtColor(t1, t1, CV_BGR2HLS);
-			for_each(t1.begin<Vec3b>(), t1.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 32); });
-			cvtColor(t1, t1, CV_HLS2BGR);
-			Mat t2 = io_tImage.clone();
-			cvtColor(t2, t2, CV_BGR2HLS);
-			for_each(t2.begin<Vec3b>(), t2.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 16); });
-			cvtColor(t2, t2, CV_HLS2BGR);
-			Mat t3 = io_tImage.clone();
-			cvtColor(t3, t3, CV_BGR2HLS);
-			for_each(t3.begin<Vec3b>(), t3.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 8); });
-			cvtColor(t3, t3, CV_HLS2BGR);
-			Mat t4 = io_tImage.clone();
-			cvtColor(t4, t4, CV_BGR2HLS);
-			for_each(t4.begin<Vec3b>(), t4.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 4); });
-			cvtColor(t4, t4, CV_HLS2BGR);
-			Mat t5 = io_tImage.clone();
-			cvtColor(t5, t5, CV_BGR2HLS);
-			for_each(t5.begin<Vec3b>(), t5.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, 2); });
-			cvtColor(t5, t5, CV_HLS2BGR);
-
-			displayImage("64", t0, 4, 4);
-			displayImage("32", t1, 4, 4);
-			displayImage("16", t2, 4, 4);
-			displayImage("8", t3, 4, 4);
-			displayImage("4", t4, 4, 4);
-			displayImage("2", t5, 4, 4);*/
-		}
 	}
 
 	static int setProcessingImage(string i_sFilepath)
@@ -102,9 +66,7 @@ struct CTraitHandler
 		}
 
 #ifdef RAW_INPUT
-		makeInputImageValid(s_tImage);
-#else
-		makeInputImageValid(s_tImage);
+		resizeToValid(s_tImage);
 #endif
 
 #ifdef COPY_RAW_TO_QUICK

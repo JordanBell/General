@@ -101,9 +101,6 @@
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h">
       <Filter>src\ITH</Filter>
     </ClInclude>
-    <ClInclude Include="src\CTraitHandler_ColorSnap.h">
-      <Filter>src\ITH</Filter>
-    </ClInclude>
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h">
       <Filter>src\ITH</Filter>
     </ClInclude>

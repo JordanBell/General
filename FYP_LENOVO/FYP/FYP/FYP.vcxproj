@@ -86,7 +86,6 @@
     <ClInclude Include="src\CBitset.h" />
     <ClInclude Include="src\CTimer.h" />
     <ClInclude Include="src\CTraitHandler.h" />
-    <ClInclude Include="src\CTraitHandler_ColorSnap.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h" />
     <ClInclude Include="src\CTraitHandler_Grabcut.h" />

@@ -115,39 +115,14 @@ multimap<B, A> flipMap(const map<A, B>& src)
 	return dst;
 }
 
-// Perhaps now deprecated
-void setXYAsMeanOf(Mat& dst, int x, int y, const Mat& src)
+float getRadialWeight(float i_fDistanceFromCenter, float i_fDiameter)
 {
-	// Get the average pixel value in src
-	Vec3f vAverage = 0;
-
-	// How to get BGR value
-	for(int i = 0; i < src.cols; i++)
-	{
-		for(int j = 0; j < src.rows; j++)
-		{
-			vAverage += src.at<Vec3b>(j, i);
-		}
-	}
-
-	vAverage /= src.rows * src.cols;
-
-	// Set the pixel at x y in dst as that average value
-	dst.at<Vec3b>(y, x) = vAverage;
-}
-
-float getRadialWeight(float i_fPercentageDistanceFromCentre)
-{
-	float fWeight = 1.f - pow(i_fPercentageDistanceFromCentre, RADIAL_WEIGHTING_EXPONENT);
+	float fPercentageDistanceFromCentre = (i_fDistanceFromCenter / (i_fDiameter / 2.f));
+	float fWeight = 1.f - pow(fPercentageDistanceFromCentre, RADIAL_WEIGHTING_EXPONENT);
 	clamp(fWeight, 0.f, 1.f);
 	fWeight *= 1.f - RADIAL_WEIGHTING_MIN;
 	fWeight += RADIAL_WEIGHTING_MIN;
 	return fWeight;
-}
-
-float getRadialWeight(float i_fDistanceFromCenter, float i_fDiameter)
-{
-	return getRadialWeight(i_fDistanceFromCenter / (i_fDiameter / 2.f));
 }
 
 // i_iChannelDivisions: The number of fractions of 255 we will snap each channel to

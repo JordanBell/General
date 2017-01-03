@@ -203,7 +203,6 @@ namespace NTesting
 		{
 			// Create the trait handlers
 			CTraitHandler_DimensionAverages ithDimensionAverages;
-			CTraitHandler_ColorSnap ithColorSnap;
 			CTraitHandler_ColorFrequency ithColorFrequency;
 			CTraitHandler_Grabcut ithGrabcut;
 
@@ -223,6 +222,7 @@ namespace NTesting
 				if (bDisplayResultImages)
 				{
 					displayImage(sImageFilename + ": Original Image", CTraitHandler::s_tImage);
+					displayImage(sImageFilename + ": Color Snapped", CTraitHandler::getColorSnapped());
 					waitKey(0); 
 				}
 
@@ -235,12 +235,10 @@ namespace NTesting
 				printf("%s...\n", sImageFilename.c_str());
 				//ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
 				//m_tTimer.print_lap("\tGrabcut: ");
-				//ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//m_tTimer.print_lap("\tDimension Averages: ");
-				ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tColor Frequency: ");
-				//ithColorSnap.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//m_tTimer.print_lap("\tColor Snap: ");
+				ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tDimension Averages: ");
+				//ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tColor Frequency: ");
 
 				i_tGroup.addResult(sImageFilename, sImgID);
 			}

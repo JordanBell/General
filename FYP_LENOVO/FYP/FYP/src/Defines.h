@@ -26,5 +26,8 @@
 #define RADIAL_WEIGHTING_EXPONENT 3
 #define RADIAL_WEIGHTING_MIN 0.1f
 
+// Channel Delta Count threshold (used in dimension averages)
+#define CDC_THRESHOLD 10
+
 // Functions
 #define ENSURE_DIR(i_sFilename) { int ensDirRes = ensureDirectory(i_sFilename); if(ensDirRes) return ensDirRes; }

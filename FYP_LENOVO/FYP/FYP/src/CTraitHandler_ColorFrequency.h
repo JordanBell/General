@@ -57,7 +57,7 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 		}
 	};
 
-	void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, int i_iNumToGet, const Mat& i_tSrc)
+	void getMostFrequentColors(vector<Vec3b>& o_vMostFrequent, unsigned int i_iNumToGet, const Mat& i_tSrc)
 	{
 		// Track how many times each color has been encountered
 		CFrequencyCounter tCounter;
@@ -78,7 +78,7 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 
 		tCounter.finalise(m_vMostFrequent);
 
-		for(int i = 0; i < i_iNumToGet && i < m_vMostFrequent.size(); ++i)
+		for(unsigned int i = 0; i < i_iNumToGet && i < m_vMostFrequent.size(); ++i)
 		{
 			o_vMostFrequent.push_back(m_vMostFrequent[i].second);
 		}
@@ -90,7 +90,7 @@ struct CTraitHandler_ColorFrequency : public CTraitHandler
 		const float fColumnWidth = 32;
 		Mat tFreqGraph = Mat((int)fGraphHeight, m_vMostFrequent.size() * fColumnWidth, CV_8UC3);
 
-		for(int i = 0; i < m_vMostFrequent.size(); ++i)
+		for(unsigned int i = 0; i < m_vMostFrequent.size(); ++i)
 		{
 			pair<float, Vec3b>& tPair = m_vMostFrequent[i];
 
