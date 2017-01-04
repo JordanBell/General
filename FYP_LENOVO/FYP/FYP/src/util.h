@@ -134,7 +134,7 @@ void snapColorsHLS(Vec3b& io_vColor, const int i_iChannelDivisions)
 	float S = io_vColor[2];
 
 	// Determine if we're black/grey/white
-	if(S < 25)
+	if(S < 50)
 	{
 		// Definitely desaturated
 		if(L < 50)
@@ -211,4 +211,11 @@ Vec3b toHLS(const Vec3b& i_tAsBGR)
 	tHLS.at<Vec3b>(0, 0) = i_tAsBGR;
 	cvtColor(tHLS, tHLS, CV_BGR2HLS);
 	return tHLS.at<Vec3b>(0, 0);
+}
+
+void colorSnap(Mat& io_tImage)
+{
+	cvtColor(io_tImage, io_tImage, CV_BGR2HLS);
+	for_each(io_tImage.begin<Vec3b>(), io_tImage.end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, CS_SEGMENT_SIZE); });
+	cvtColor(io_tImage, io_tImage, CV_HLS2BGR);
 }

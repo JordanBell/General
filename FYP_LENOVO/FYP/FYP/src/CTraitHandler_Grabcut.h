@@ -16,7 +16,7 @@ struct CTraitHandler_Grabcut : public CTraitHandler
 		}
 	}
 
-	void evaluate(std::string& o_sID, const std::string& i_sImgName, const bool i_bDisplay) override
+	void evaluate(CIDData& o_sID, const std::string& i_sImgName, const bool i_bDisplay) override
 	{
 		// Create the sub-images and displays
 
@@ -59,15 +59,7 @@ struct CTraitHandler_Grabcut : public CTraitHandler
 		// Calculate the evaluation string
 		{
 			// Arbitrary general aspect: Some foreground found
-			o_sID += "gc_fgd:";
-			if(countNonZero(tMask) > 0)
-			{
-				o_sID += "y";
-			}
-			else
-			{
-				o_sID += "n";
-			}
+			o_sID.addFloat("grabcut_mask_size:", countNonZero(tMask), 5.f);
 		}
 	}
 };

@@ -15,36 +15,46 @@ namespace NTesting
 		};
 
 		// A collection of Images linked to an ID
-		struct CIDImgs
+		struct CResultGroup
 		{
-			string m_sImgID;
+			CIDData m_tGroupImgID;
 			vector<string> m_sImgNames;
+			vector<CIDData> m_tImgIDs;
+
+			void addImage(const string& i_sImgName, const CIDData& i_tImgID)
+			{
+				// Add string to names
+				m_sImgNames.push_back(i_sImgName);
+				m_tImgIDs.push_back(i_tImgID);
+
+				// Set the group img ID as the new average
+				m_tGroupImgID = CIDData(m_tImgIDs);
+			}
 		};
 
-		vector<CIDImgs> m_tResults;
+		vector<CResultGroup> m_tResults;
 
 		static int s_iUnnamedGroupCounter;
 
 		string m_sName;
 		CBitset m_tFlags;
 
-		void addResult(const string& i_sImgName, const string& i_sImgID)
+		void addResult(const string& i_sImgName, const CIDData& i_tImgID)
 		{
-			for(CIDImgs& tResultCollection : m_tResults)
+			for(CResultGroup& tResultGroup : m_tResults)
 			{
-				if(tResultCollection.m_sImgID == i_sImgID)
+				if(tResultGroup.m_tGroupImgID == i_tImgID)
 				{
 					// Add to existing collection
-					tResultCollection.m_sImgNames.push_back(i_sImgName);
+					tResultGroup.m_sImgNames.push_back(i_sImgName);
 					return;
 				}
 			}
 
 			// Add a new result collection
-			CIDImgs tResultCollection;
-			tResultCollection.m_sImgID = i_sImgID;
-			tResultCollection.m_sImgNames.push_back(i_sImgName);
-			m_tResults.push_back(tResultCollection);
+			CResultGroup tResultGroup;
+			tResultGroup.addImage(i_sImgName, i_tImgID);
+			m_tResults.push_back(tResultGroup);
 		}
 
 		void printResults(FILE* i_pOutFile)
@@ -59,22 +69,22 @@ namespace NTesting
 			{
 				if(m_tResults.size() == 1)
 				{
-					CIDImgs& tResultCollection = m_tResults[0];
+					CResultGroup& tResultCollection = m_tResults[0];
 					fprintf(i_pOutFile, "\t+++++\t%s\t+++++\n", m_sName.c_str());
 					fprintf(i_pOutFile, "\tCount: %ld\n", tResultCollection.m_sImgNames.size());
-					fprintf(i_pOutFile, "\tID: %s\n", tResultCollection.m_sImgID.c_str());
+					fprintf(i_pOutFile, "\tID: %s\n", tResultCollection.m_tGroupImgID.toString().c_str());
 					fprintf(i_pOutFile, "\n");
 				}
 				else
 				{
 					fprintf(i_pOutFile, "\t-----\t%s [~Fragmented]\t-----\n", m_sName.c_str());
-					fprintf(i_pOutFile, "\tSuccess Rating: %.0f%%\n", 1.f - ((float)m_tResults.size() / (float)size()) );
+					fprintf(i_pOutFile, "\tSuccess Rating: %.0f%%\n", 100.f * (1.f - ((float)m_tResults.size() / (float)size())) );
 					fprintf(i_pOutFile, "\tImage Count: %ld\n", size());
 					fprintf(i_pOutFile, "\tUnique Count: %ld\n", m_tResults.size());
 					fprintf(i_pOutFile, "\tUnique IDs:\n");
-					for(CIDImgs& tResultCollection : m_tResults)
+					for(CResultGroup& tResultCollection : m_tResults)
 					{
-						fprintf(i_pOutFile, "\t\tID: %s\n", tResultCollection.m_sImgID.c_str());
+						fprintf(i_pOutFile, "\t\tID: %s\n", tResultCollection.m_tGroupImgID.toString().c_str());
 						for(unsigned int i = 0; i < tResultCollection.m_sImgNames.size(); ++i)
 						{
 							string& sImgName = tResultCollection.m_sImgNames[i];
@@ -212,7 +222,7 @@ namespace NTesting
 
 				if(CTraitHandler::setProcessingImage(sMemberName) < 0)
 				{
-					assertbr(0, "Error: Could not load image: \"" + sMemberName + "\"\n");
+					assertbr(0, "Error: Could not load image: " + sMemberName + "");
 					continue;
 				}
 
@@ -231,16 +241,16 @@ namespace NTesting
 				// Time how long it will take
 				m_tTimer.start();
 
-				string sImgID;
+				CIDData tImgID;
 				printf("%s...\n", sImageFilename.c_str());
-				//ithGrabcut.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				//ithGrabcut.evaluate(tImgID, sImageFilename, bDisplayResultImages);
 				//m_tTimer.print_lap("\tGrabcut: ");
-				ithDimensionAverages.evaluate(sImgID, sImageFilename, bDisplayResultImages);
+				ithDimensionAverages.evaluate(tImgID, sImageFilename, bDisplayResultImages);
 				m_tTimer.print_lap("\tDimension Averages: ");
-				//ithColorFrequency.evaluate(sImgID, sImageFilename, bDisplayResultImages);
-				//m_tTimer.print_lap("\tColor Frequency: ");
+				ithColorFrequency.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tColor Frequency: ");
 
-				i_tGroup.addResult(sImageFilename, sImgID);
+				i_tGroup.addResult(sImageFilename, tImgID);
 			}
 
 			i_tGroup.printResults(m_pResultsOutFile);

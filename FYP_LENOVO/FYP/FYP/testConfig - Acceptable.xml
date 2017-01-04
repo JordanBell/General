@@ -7,10 +7,10 @@ conditions/angles, giving more room for error.
 -->
 
 <testConfig>
-  
-  <!-- Misc -->
-  <group name="Misc" doDisplay="false">
-    <member>Misc/spectrum.jpg</member>
+
+  <!-- Batch 3 -->
+  <group name="Christmas Card">
+    <memberGenerator prefix="Batch3/xmas_card_" count="18" extension="jpg"/>
   </group>
   
   <!-- Batch 0 -->

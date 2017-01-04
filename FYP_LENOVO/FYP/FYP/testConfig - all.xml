@@ -1,0 +1,69 @@
+<!-- 
+
+This test configuration file checks for any false positives among all images.
+
+-->
+
+<testConfig>
+  
+  <!-- Misc -->
+  <group name="All" doDisplay="false">
+    <memberGenerator prefix="Batch3/xmas_card_" count="18" extension="jpg"/>
+    <memberGenerator prefix="Batch0/hair" count="2" extension="bmp"/>
+    <memberGenerator prefix="Batch1/intelInside_" count="4" extension="jpg"/>
+    <member>Batch1/isaacBeads_1.jpg</member>
+    <member>Batch1/isaacBeads_2.jpg</member>
+    <memberGenerator prefix="Batch1/lock0_" count="2" extension="jpg"/>
+    <member>Batch1/mask0_0.jpg</member>
+    <member>Batch1/mask0_2.jpg</member>
+    <memberGenerator prefix="Batch1/notepad0_" count="3" extension="jpg"/>
+    <memberGenerator prefix="Batch1/symbol0_" count="6" extension="jpg"/> 
+    <memberGenerator prefix="Batch1/symbol1_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch1/symbol2_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch1/wallPlug_" count="5" extension="jpg"/>
+    <member>Batch1/face0_1.jpg</member>
+    <member>Batch1/face0_3.jpg</member>
+    <member>Batch1/face0_4.jpg</member>
+    <member>Batch1/face0_5.jpg</member>
+    <member>Batch2/bin0_1.jpg</member>
+    <member>Batch2/bin0_2.jpg</member>
+    <member>Batch2/bin0_3.jpg</member>
+    <memberGenerator prefix="Batch2/bricks0_" count="4" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/bush0_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/defibrillator0_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/landscape_grass0_" count="3" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_ad0_" count="4" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_bike_" count="2" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_danes0_" count="3" extension="jpg"/> 
+    <member>Batch2/sign_dominos0_2.jpg</member>
+    <member>Batch2/sign_dominos0_3.jpg</member>
+    <member>Batch2/sign_dominos0_5.jpg</member>
+    <member>Batch2/sign_dominos1_0.jpg</member>
+    <member>Batch2/sign_dominos1_1.jpg</member>
+    <member>Batch2/sign_dominos1_5.jpg</member>
+    <member>Batch2/sign_dominos1_6.jpg</member>
+    <memberGenerator prefix="Batch2/sign_elder0_" count="2" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_ff0_" count="5" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_ff1_" count="2" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_ff2_" count="2" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_fish0_" count="3" extension="jpg"/> 
+    <memberGenerator prefix="Batch2/sign_greggs0_" count="4" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_greggs1_" count="2" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_hingley0_" count="3" extension="jpg"/>
+    <memberGenerator prefix="Batch2/sign_hobsmeadow0_" count="2" extension="jpg"/> 
+    <member>Batch2/sign_hobsmeadow1_1.jpg</member>
+    <member>Batch2/sign_hobsmeadow1_2.jpg</member> 
+    <memberGenerator prefix="Batch2/sign_leftOnly_" count="4" extension="jpg"/> 
+    <member>Batch2/sign_school0_1.jpg</member>
+    <member>Batch2/sign_school0_3.jpg</member> 
+    <memberGenerator prefix="Batch2/sign_speedBump_" count="2" extension="jpg"/> 
+    <member>Batch2/sign_tesco0_3.jpg</member>
+    <member>Batch2/sign_tesco0_4.jpg</member>
+    <member>Batch2/sign_tesco0_5.jpg</member>
+    <member>Batch2/sign_tesco0_6.jpg</member>
+    <member>Batch2/sign_tesco1_1.jpg</member>
+    <member>Batch2/sign_tesco1_2.jpg</member>
+    <member>Batch2/sign_tesco1_3.jpg</member>
+    <memberGenerator prefix="Batch2/sign_winchcombe_" count="3" extension="jpg"/>
+  </group>
+</testConfig>

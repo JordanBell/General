@@ -1,3 +1,5 @@
+#define REDUCTION_SIZE 2
+
 struct CTraitHandler_DimensionAverages : public CTraitHandler
 {
 	Mat m_tVert;
@@ -47,7 +49,7 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 		Mat tResized;
 
 		// Resize the color-snapped image
-		Size tNewSize((int)s_tImage.cols / 8, (int)s_tImage.rows / 8);
+		Size tNewSize((int)s_tImage.cols / REDUCTION_SIZE, (int)s_tImage.rows / REDUCTION_SIZE);
 		resize(getColorSnapped(), tResized, tNewSize); 
 
 		// Create the sub-images
@@ -91,11 +93,11 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 		return r_iCDC;
 	}
 
-	void evaluate(std::string& o_sID, const std::string& i_sImgName, const bool i_bDisplay) override
+	void evaluate(CIDData& o_sID, const std::string& i_sImgName, const bool i_bDisplay) override
 	{
-		if(s_tImage.cols < 8 || s_tImage.rows < 8)
+		if(s_tImage.cols < REDUCTION_SIZE || s_tImage.rows < REDUCTION_SIZE)
 		{
-			o_sID += "VH.nop | ";
+			o_sID.addBool("VH.nop");
 			return;
 		}
 
@@ -103,14 +105,24 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 
 		if (i_bDisplay)
 		{
-			displayImage(i_sImgName + ": Horizontal Averages", m_tHori, 64.f, 8.f); 
-			displayImage(i_sImgName + ": Vertical Averages", m_tVert, 8.f, 64.f);  
+			displayImage(i_sImgName + ": Horizontal Averages", m_tHori, 8.f * REDUCTION_SIZE, 8.f); 
+			displayImage(i_sImgName + ": Vertical Averages", m_tVert, 8.f, 8.f * REDUCTION_SIZE);  
 			waitKey(0); 
 		}
 
+		Mat tHoriSnapped = m_tHori.clone();
+		Mat tVertSnapped = m_tVert.clone();
+		colorSnap(tVertSnapped);
+		colorSnap(tHoriSnapped);
+
+		saveTo("DimAvg_H", i_sImgName + "_raw", m_tHori);
+		saveTo("DimAvg_H", i_sImgName + "_snapped", tHoriSnapped);
+		saveTo("DimAvg_V", i_sImgName + "_raw", m_tVert);
+		saveTo("DimAvg_V", i_sImgName + "_snapped", tVertSnapped);
 
 		// Calculate the evaluation string
 		{
+#if 0
 			// Do vertical
 			{
 				cvtColor(m_tVert, m_tVert, CV_BGR2HLS);
@@ -124,7 +136,19 @@ struct CTraitHandler_DimensionAverages : public CTraitHandler
 
 				o_sID += "H.hdc: " + to_string(getCDC(m_tHori, 0));
 				o_sID += " | ";
-			}
+			}  
+#else
+			// Count the number of color-snapped colors
+			vector<pair<float, Vec3b>> vHoriColors;
+			vector<pair<float, Vec3b>> vVertColors;
+			CFrequencyCounter::getColors(tHoriSnapped, vHoriColors);
+			CFrequencyCounter::getColors(tVertSnapped, vVertColors);
+
+			// Add the color count
+			o_sID.addFloat("H.ColorCount:", (float)vHoriColors.size(), ALLOWANCE_DIMENSION_COLOR_COUNT);
+			o_sID.addFloat("V.ColorCount:", (float)vVertColors.size(), ALLOWANCE_DIMENSION_COLOR_COUNT);
+#endif
+
 		}
 	}
 };

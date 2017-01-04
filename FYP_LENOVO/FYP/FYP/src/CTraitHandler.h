@@ -3,7 +3,6 @@ using namespace cv;
 
 struct CTraitHandler
 {
-	static vector<CTraitHandler*> s_lpAllHandlers;
 	static Mat s_tImage;
 #ifdef SAVE_INTO_LOCAL_FOLDER
 	static string s_sResultDirectory;
@@ -15,20 +14,11 @@ struct CTraitHandler
 
 	int m_iInstanceIndex;
 
-	CTraitHandler()
-		//: m_iInstanceIndex(s_lpAllHandlers.size())
+	virtual ~CTraitHandler()
 	{
-		// Add this to the list of all instances
-		//s_lpAllHandlers.push_back(this);
 	}
 
-	~CTraitHandler()
-	{
-		// Remove this from the list of all instances
-		//s_lpAllHandlers.erase(s_lpAllHandlers.begin() + m_iInstanceIndex);
-	}
-
-	static void resizeToValid(Mat& io_tImage)
+	static void makeValid(Mat& io_tImage)
 	{
 		float fWidth = io_tImage.cols;
 		float fHeight = io_tImage.rows;
@@ -66,7 +56,7 @@ struct CTraitHandler
 		}
 
 #ifdef RAW_INPUT
-		resizeToValid(s_tImage);
+		makeValid(s_tImage);
 #endif
 
 #ifdef COPY_RAW_TO_QUICK
@@ -102,7 +92,7 @@ struct CTraitHandler
 	}
 
 	// Returns a string result for the subject image
-	virtual void evaluate(string& o_sID, const std::string& i_sImgName, const bool i_bDisplay) = 0;
+	virtual void evaluate(CIDData& o_sID, const std::string& i_sImgName, const bool i_bDisplay) = 0;
 
 	void saveTo(string i_sFolderName, string i_sImgName, const Mat& i_tImageToSave)
 	{
@@ -123,9 +113,7 @@ struct CTraitHandler
 			s_pImageColorSnapped = new Mat(s_tImage.clone());
 
 			// Perform color snap
-			cvtColor(*s_pImageColorSnapped, *s_pImageColorSnapped, CV_BGR2HLS);
-			for_each(s_pImageColorSnapped->begin<Vec3b>(), s_pImageColorSnapped->end<Vec3b>(), [] (Vec3b& io_vColor) { snapColorsHLS(io_vColor, CS_SEGMENT_SIZE); });
-			cvtColor(*s_pImageColorSnapped, *s_pImageColorSnapped, CV_HLS2BGR);
+			colorSnap(*s_pImageColorSnapped);
 
 #if defined(CS_BLUR_SIZE)
 			// Perform median blur to remove unimportant details

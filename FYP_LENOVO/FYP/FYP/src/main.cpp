@@ -37,8 +37,10 @@
 #include "Histogram.h"
 #include "util.h"
 #include "CTimer.h"
+#include "CFrequencyCounter.h"
 
 // Core
+#include "CIDData.h"
 #include "CTraitHandler.h"
 #include "CTraitHandler_DimensionAverages.h"
 #include "CTraitHandler_ColorFrequency.h"

@@ -110,6 +110,12 @@
     <ClInclude Include="src\CTimer.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\CFrequencyCounter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CIDData.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -629,6 +635,9 @@
       <Filter>Meta</Filter>
     </Xml>
     <Xml Include="testConfig - Acceptable.xml">
+      <Filter>Meta</Filter>
+    </Xml>
+    <Xml Include="testConfig - all.xml">
       <Filter>Meta</Filter>
     </Xml>
   </ItemGroup>

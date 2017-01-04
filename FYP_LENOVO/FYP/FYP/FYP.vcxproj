@@ -84,6 +84,7 @@
     <ClInclude Include="opencv\build\include\opencv\highgui.h" />
     <ClInclude Include="opencv\build\include\opencv\ml.h" />
     <ClInclude Include="src\CBitset.h" />
+    <ClInclude Include="src\CFrequencyCounter.h" />
     <ClInclude Include="src\CTimer.h" />
     <ClInclude Include="src\CTraitHandler.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="src\CTraitHandler_Grabcut.h" />
     <ClInclude Include="src\Defines.h" />
     <ClInclude Include="src\Histogram.h" />
+    <ClInclude Include="src\CIDData.h" />
     <ClInclude Include="src\NTesting.h" />
     <ClInclude Include="src\rapidxml\rapidxml.hpp" />
     <ClInclude Include="src\rapidxml\rapidxml_iterators.hpp" />
@@ -278,6 +280,7 @@
     <Xml Include="testConfig - Acceptable.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="testConfig - all.xml" />
     <Xml Include="testConfig - Perfect.xml">
       <SubType>Designer</SubType>
     </Xml>

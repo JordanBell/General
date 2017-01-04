@@ -1,0 +1,356 @@
+	+++++	Misc	+++++
+	Count: 1
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 4.000000
+
+
+	+++++	Hair	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 3.000000
+
+
+	+++++	Intel Inside	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 4.000000
+
+
+	+++++	Isaac	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 3.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Lock	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 1.000000
+V.ColorCount:: 3.000000
+
+
+	+++++	Mask	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 1.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Notepad	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Symbols 1	+++++
+	Count: 6
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 1.000000
+
+
+	+++++	Symbols 2	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Symbols 3	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Wall Plug	+++++
+	Count: 5
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Face 1	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 1.000000
+V.ColorCount:: 1.000000
+
+
+	+++++	Face 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 3.000000
+
+
+	+++++	Trash Bin	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 4.000000
+
+
+	+++++	Bricks	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 3.000000
+
+
+	+++++	Bush	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 2.000000
+
+
+	-----	Defib [~Fragmented]	-----
+	Success Rating: 33%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 5.000000
+
+			1. defibrillator0_0
+			2. defibrillator0_2
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 6.000000
+V.ColorCount:: 7.000000
+
+			1. defibrillator0_1
+
+
+	+++++	Landscape Grass	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Ad (Blue truck)	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Bike	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Danes	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 5.000000
+
+
+	+++++	Sign Dominos 1	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 6.000000
+V.ColorCount:: 7.000000
+
+
+	+++++	Sign Dominos 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 6.000000
+
+
+	+++++	Sign Dominos 3	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 7.000000
+V.ColorCount:: 8.000000
+
+
+	+++++	Sign Elders	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 1.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Fitness First 1	+++++
+	Count: 5
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Fitness First 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 3.000000
+V.ColorCount:: 5.000000
+
+
+	+++++	Sign Fitness First 3	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 6.000000
+V.ColorCount:: 4.000000
+
+
+	-----	Sign Fish [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 3
+	Unique Count: 3
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 7.000000
+V.ColorCount:: 6.000000
+
+			1. sign_fish0_0
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 3.000000
+V.ColorCount:: 5.000000
+
+			1. sign_fish0_1
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 6.000000
+
+			1. sign_fish0_2
+
+
+	+++++	Sign Greggs 1	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 2.000000
+
+
+	+++++	Sign Greggs 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 5.000000
+
+
+	-----	Sign Hingley [~Fragmented]	-----
+	Success Rating: 33%
+	Image Count: 3
+	Unique Count: 2
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 1.000000
+
+			1. sign_hingley0_0
+			2. sign_hingley0_2
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 2.000000
+
+			1. sign_hingley0_1
+
+
+	+++++	Sign Hobs Meadow 1	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 4.000000
+
+
+	-----	Sign Hobs Meadow 2 [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 6.000000
+
+			1. sign_hobsmeadow1_1
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 3.000000
+V.ColorCount:: 4.000000
+
+			1. sign_hobsmeadow1_2
+
+
+	+++++	Sign Left Only	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 2.000000
+V.ColorCount:: 5.000000
+
+
+	-----	Sign School [~Fragmented]	-----
+	Success Rating: 0%
+	Image Count: 2
+	Unique Count: 2
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 8.000000
+V.ColorCount:: 9.000000
+
+			1. sign_school0_1
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 4.000000
+V.ColorCount:: 9.000000
+
+			1. sign_school0_3
+
+
+	+++++	Sign Speed Bump	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 1.000000
+V.ColorCount:: 4.000000
+
+
+	-----	Sign Tesco 1 [~Fragmented]	-----
+	Success Rating: 50%
+	Image Count: 4
+	Unique Count: 2
+	Unique IDs:
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 7.000000
+V.ColorCount:: 5.000000
+
+			1. sign_tesco0_3
+			2. sign_tesco0_4
+			3. sign_tesco0_6
+
+		ID: [Color Frequencies not displayed]
+H.ColorCount:: 8.000000
+V.ColorCount:: 3.000000
+
+			1. sign_tesco0_5
+
+
+	+++++	Sign Tesco 2	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 5.000000
+V.ColorCount:: 7.000000
+
+
+	+++++	Sign Winchcombe	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+H.ColorCount:: 10.000000
+V.ColorCount:: 3.000000
+
+

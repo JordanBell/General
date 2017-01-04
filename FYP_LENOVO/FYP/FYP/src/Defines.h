@@ -26,6 +26,12 @@
 #define RADIAL_WEIGHTING_EXPONENT 3
 #define RADIAL_WEIGHTING_MIN 0.1f
 
+// ID similarity allowances
+#define ALLOWANCE_COLOR_FREQUENCY 0.25f
+#define ALLOWANCE_COLOR_FREQUENCY_MATCHES 2
+#define ALLOWANCE_DIMENSION_COLOR_COUNT 2.f
+#define ALLOWANCE_TOTAL_MATCHES 1
+
 // Channel Delta Count threshold (used in dimension averages)
 #define CDC_THRESHOLD 10
 

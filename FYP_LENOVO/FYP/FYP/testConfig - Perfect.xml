@@ -72,4 +72,7 @@ if we expect perfect results.
   </group>
   <group name="Sign Truck">         <memberGenerator prefix="Batch2/sign_truck0_" count="3" extension="jpg"/> </group>
   <group name="Sign Winchcombe">    <memberGenerator prefix="Batch2/sign_winchcombe_" count="4" extension="jpg"/> </group>
+  
+  <!-- Batch 3 -->
+  <group name="Christmas Card"> <memberGenerator prefix="Batch3/xmas_card_" count="18" extension="jpg"/> </group>
 </testConfig>
