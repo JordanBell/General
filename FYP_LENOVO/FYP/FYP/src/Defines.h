@@ -30,6 +30,7 @@
 #define ALLOWANCE_COLOR_FREQUENCY 0.25f
 #define ALLOWANCE_COLOR_FREQUENCY_MATCHES 2
 #define ALLOWANCE_DIMENSION_COLOR_COUNT 2.f
+#define ALLOWANCE_WIDTH_HEIGHT_DIFF 10.f
 #define ALLOWANCE_TOTAL_MATCHES 1
 
 // Channel Delta Count threshold (used in dimension averages)
@@ -37,3 +38,8 @@
 
 // Functions
 #define ENSURE_DIR(i_sFilename) { int ensDirRes = ensureDirectory(i_sFilename); if(ensDirRes) return ensDirRes; }
+
+// Testing
+#define CONFIG_FILEPATH "testConfig - all.xml"
+//#define CONFIG_FILEPATH "testConfig - all.xml"
+#define OUTPUT_LOG_FILENAME "results.txt"

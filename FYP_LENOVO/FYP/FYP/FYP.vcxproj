@@ -87,9 +87,11 @@
     <ClInclude Include="src\CFrequencyCounter.h" />
     <ClInclude Include="src\CTimer.h" />
     <ClInclude Include="src\CTraitHandler.h" />
+    <ClInclude Include="src\CTraitHandler_Aspect.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h" />
     <ClInclude Include="src\CTraitHandler_Grabcut.h" />
+    <ClInclude Include="src\CTraitHandler_OCR.h" />
     <ClInclude Include="src\Defines.h" />
     <ClInclude Include="src\Histogram.h" />
     <ClInclude Include="src\CIDData.h" />
@@ -280,7 +282,9 @@
     <Xml Include="testConfig - Acceptable.xml">
       <SubType>Designer</SubType>
     </Xml>
-    <Xml Include="testConfig - all.xml" />
+    <Xml Include="testConfig - all.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="testConfig - Perfect.xml">
       <SubType>Designer</SubType>
     </Xml>

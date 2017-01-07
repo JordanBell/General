@@ -20,6 +20,12 @@ struct CTraitHandler
 
 	static void makeValid(Mat& io_tImage)
 	{
+		// Apply custom, one-time test
+		{
+			
+		}
+
+		// Resize
 		float fWidth = io_tImage.cols;
 		float fHeight = io_tImage.rows;
 

@@ -18,7 +18,7 @@ struct CIDMember
 
 bool CIDMember<float>::isLike(const CIDMember<float>& i_tOther) const
 {
-	return fabsf(i_tOther.m_tValue - m_tValue) < m_tAllowanceAbs;
+	return fabsf(i_tOther.m_tValue - m_tValue) <= m_tAllowanceAbs;
 }
 
 bool CIDMember<bool>::isLike(const CIDMember<bool>& i_tOther) const
@@ -30,7 +30,22 @@ struct CIDMember_ColorFrequencies
 {
 	static const int sk_iAllowanceSize = 2;
 	static const int sk_iAllowanceMutual = 2;
-	vector<pair<float, Vec3b>> m_vSortedColorFrequencies;
+	bool m_bIsSet;
+
+	CIDMember_ColorFrequencies()
+		: m_bIsSet(false)
+	{}
+
+	void set(const vector<pair<float, Vec3b>>& i_vSortedColorFrequencies)
+	{
+		m_vSortedColorFrequencies.clear();
+		for(auto thing : i_vSortedColorFrequencies)
+		{
+			m_vSortedColorFrequencies.push_back(thing);
+		}
+
+		m_bIsSet = true;
+	}
 
 	static int getNumMutual(vector<pair<float, Vec3b>> i_v0, vector<pair<float, Vec3b>> i_v1)
 	{
@@ -53,6 +68,8 @@ struct CIDMember_ColorFrequencies
 
 	int getMatches(const CIDMember_ColorFrequencies& i_tOther) const
 	{
+		if(!m_bIsSet) return 0;
+
 		int r_iNumMatches = 0;
 
 		const auto& v0 = m_vSortedColorFrequencies;
@@ -102,11 +119,15 @@ struct CIDMember_ColorFrequencies
 		return r_iNumMatches;
 	}
 
-	int getMatches() const
+	int getPossibleMatches() const
 	{
 		// The 3 comes from the 2 matches for the size, mutual color and color frequency checks
-		return 3;
+		return m_bIsSet ? 3 : 0;
 	}
+
+private:
+	vector<pair<float, Vec3b>> m_vSortedColorFrequencies;
+
 };
 
 struct CIDData
@@ -144,11 +165,7 @@ struct CIDData
 
 	void setCustom_ColorFrequencies(vector<pair<float, Vec3b>>& i_vSortedColorFrequencies)
 	{
-		m_tCustom_CF.m_vSortedColorFrequencies.clear();
-		for(auto thing : i_vSortedColorFrequencies)
-		{
-			m_tCustom_CF.m_vSortedColorFrequencies.push_back(thing);
-		}
+		m_tCustom_CF.set(i_vSortedColorFrequencies);
 	}
 
 	template <typename T>
@@ -186,16 +203,24 @@ struct CIDData
 
 	int getTotalPossibleMatches() const
 	{
-		return m_tFloats.size() + m_tBools.size() + m_tCustom_CF.getMatches();
+		return m_tFloats.size() + m_tBools.size() + m_tCustom_CF.getPossibleMatches();
 	}
 
 	bool operator==(const CIDData& i_tOther) const
 	{
+		if(getTotalPossibleMatches() == 0) return false;
+
 		// Floats
 		int numMatches = 0;
 		numMatches += m_tCustom_CF.getMatches(i_tOther.m_tCustom_CF);
 		numMatches += getNumMatches(m_tFloats, i_tOther.m_tFloats);
 		numMatches += getNumMatches(m_tBools, i_tOther.m_tBools);
+
+		if(numMatches == 0)
+		{
+			return false;
+		}
+
 		return fabsf(numMatches - getTotalPossibleMatches()) <= ALLOWANCE_TOTAL_MATCHES;
 	}
 

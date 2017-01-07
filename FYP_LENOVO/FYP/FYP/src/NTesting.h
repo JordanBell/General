@@ -1,6 +1,3 @@
-#define CONFIG_FILEPATH "testConfig - Acceptable.xml"
-#define OUTPUT_LOG_FILENAME "results.txt"
-
 using namespace rapidxml;
 using namespace std;
 using namespace std::chrono;
@@ -38,6 +35,8 @@ namespace NTesting
 
 		string m_sName;
 		CBitset m_tFlags;
+
+		bool m_bFullyCongruent;
 
 		void addResult(const string& i_sImgName, const CIDData& i_tImgID)
 		{
@@ -193,9 +192,33 @@ namespace NTesting
 			init();
 
 			// Test every group
-			for(CGroup& tGroup : m_tConfig.m_tGroups)
+			int iSuccessful = 0;
+			for(unsigned int i = 0; i < m_tConfig.m_tGroups.size(); ++i)
 			{
-				testGroup(tGroup);
+				CGroup& tGroup = m_tConfig.m_tGroups[i];
+				if(testGroup(tGroup))
+				{
+					++iSuccessful;
+				}
+			}
+
+			// Print results
+			fprintf(m_pResultsOutFile, "... Summary ...\n");
+			fprintf(m_pResultsOutFile, "\tCongruence Rate: %.0f%%\n\n\n", 100.f * ((float)iSuccessful / (float)m_tConfig.m_tGroups.size()));
+
+			if (iSuccessful != m_tConfig.m_tGroups.size())
+			{
+				// Print the incongruent groups first
+				fprintf(m_pResultsOutFile, "Incongruent Results:\n\n");
+				for_each(m_tConfig.m_tGroups.begin(), m_tConfig.m_tGroups.end(), [this] (CGroup& tGroup) { if(!tGroup.m_bFullyCongruent) tGroup.printResults(m_pResultsOutFile); });
+
+				// Finally, the congruent ones
+				fprintf(m_pResultsOutFile, "Congruent Results:\n\n");
+				for_each(m_tConfig.m_tGroups.begin(), m_tConfig.m_tGroups.end(), [this] (CGroup& tGroup) { if(tGroup.m_bFullyCongruent) tGroup.printResults(m_pResultsOutFile); }); 
+			}
+			else
+			{
+				for_each(m_tConfig.m_tGroups.begin(), m_tConfig.m_tGroups.end(), [this] (CGroup& tGroup) { tGroup.printResults(m_pResultsOutFile); }); 
 			}
 
 			cleanup();
@@ -209,12 +232,14 @@ namespace NTesting
 #endif
 		}
 
-		void testGroup(CGroup& i_tGroup)
+		// Returns true if all members match
+		bool testGroup(CGroup& i_tGroup)
 		{
 			// Create the trait handlers
 			CTraitHandler_DimensionAverages ithDimensionAverages;
 			CTraitHandler_ColorFrequency ithColorFrequency;
 			CTraitHandler_Grabcut ithGrabcut;
+			CTraitHandler_Aspect ithAspect;
 
 			for(string sMemberName : i_tGroup)
 			{
@@ -243,17 +268,24 @@ namespace NTesting
 
 				CIDData tImgID;
 				printf("%s...\n", sImageFilename.c_str());
+
 				//ithGrabcut.evaluate(tImgID, sImageFilename, bDisplayResultImages);
 				//m_tTimer.print_lap("\tGrabcut: ");
-				ithDimensionAverages.evaluate(tImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tDimension Averages: ");
-				ithColorFrequency.evaluate(tImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tColor Frequency: ");
+
+				//ithDimensionAverages.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tDimension Averages: ");
+				
+				//ithColorFrequency.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tColor Frequency: ");
+
+				ithAspect.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tAspect: ");
 
 				i_tGroup.addResult(sImageFilename, tImgID);
 			}
 
-			i_tGroup.printResults(m_pResultsOutFile);
+			i_tGroup.m_bFullyCongruent  = i_tGroup.m_tResults.size() == 1;
+			return i_tGroup.m_bFullyCongruent;
 		}
 	};
 

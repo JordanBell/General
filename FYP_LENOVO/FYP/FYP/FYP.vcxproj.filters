@@ -116,6 +116,12 @@
     <ClInclude Include="src\CIDData.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\CTraitHandler_Aspect.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTraitHandler_OCR.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

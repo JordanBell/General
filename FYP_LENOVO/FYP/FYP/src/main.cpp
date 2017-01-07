@@ -27,6 +27,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/opencv.hpp>
 
 // Pre-headers
 #include "Types.h"
@@ -45,6 +46,8 @@
 #include "CTraitHandler_DimensionAverages.h"
 #include "CTraitHandler_ColorFrequency.h"
 #include "CTraitHandler_Grabcut.h"
+#include "CTraitHandler_Aspect.h"
+#include "CTraitHandler_OCR.h"
 
 // Testing & Verification
 #include "NTesting.h"
