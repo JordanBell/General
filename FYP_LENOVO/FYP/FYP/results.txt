@@ -1,0 +1,244 @@
+... Summary ...
+	Congruence Rate: 100%
+
+
+	+++++	Christmas Card	+++++
+	Count: 18
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 946.000000
+
+
+	+++++	Hair	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 1052.000000
+
+
+	+++++	Intel Inside	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 878.000000
+
+
+	+++++	Isaac	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 765.000000
+
+
+	+++++	Lock	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 788.000000
+
+
+	+++++	Mask	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 757.000000
+
+
+	+++++	Notepad	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 827.000000
+
+
+	+++++	Symbols 1	+++++
+	Count: 6
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 765.000000
+
+
+	+++++	Symbols 2	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 621.000000
+
+
+	+++++	Symbols 3	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 664.000000
+
+
+	+++++	Wall Plug	+++++
+	Count: 5
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 417.000000
+
+
+	+++++	Face 1	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 637.000000
+
+
+	+++++	Face 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 662.000000
+
+
+	+++++	Trash Bin	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 647.000000
+
+
+	+++++	Bricks	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 945.000000
+
+
+	+++++	Bush	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 844.000000
+
+
+	+++++	Defib	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 940.000000
+
+
+	+++++	Landscape Grass	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 286.000000
+
+
+	+++++	Sign Ad (Blue truck)	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 380.000000
+
+
+	+++++	Sign Bike	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 470.000000
+
+
+	+++++	Sign Danes	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 808.000000
+
+
+	+++++	Sign Dominos 1	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 635.000000
+
+
+	+++++	Sign Dominos 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 574.000000
+
+
+	+++++	Sign Dominos 3	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 482.000000
+
+
+	+++++	Sign Elders	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 577.000000
+
+
+	+++++	Sign Fitness First 1	+++++
+	Count: 5
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 329.000000
+
+
+	+++++	Sign Fitness First 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 557.000000
+
+
+	+++++	Sign Fitness First 3	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 721.000000
+
+
+	+++++	Sign Fish	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 889.000000
+
+
+	+++++	Sign Greggs 1	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 306.000000
+
+
+	+++++	Sign Greggs 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 898.000000
+
+
+	+++++	Sign Hingley	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 401.000000
+
+
+	+++++	Sign Hobs Meadow 1	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 188.000000
+
+
+	+++++	Sign Hobs Meadow 2	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 524.000000
+
+
+	+++++	Sign Left Only	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 718.000000
+
+
+	+++++	Sign School	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 692.000000
+
+
+	+++++	Sign Speed Bump	+++++
+	Count: 2
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 427.000000
+
+
+	+++++	Sign Tesco 1	+++++
+	Count: 4
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 340.000000
+
+
+	+++++	Sign Tesco 2	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 685.000000
+
+
+	+++++	Sign Winchcombe	+++++
+	Count: 3
+	ID: [Color Frequencies not displayed]
+CannyCount_Threshold: 284.000000
+
+

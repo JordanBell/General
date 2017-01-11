@@ -88,6 +88,7 @@
     <ClInclude Include="src\CTimer.h" />
     <ClInclude Include="src\CTraitHandler.h" />
     <ClInclude Include="src\CTraitHandler_Aspect.h" />
+    <ClInclude Include="src\CTraitHandler_CannyCount.h" />
     <ClInclude Include="src\CTraitHandler_ColorFrequency.h" />
     <ClInclude Include="src\CTraitHandler_DimensionAverages.h" />
     <ClInclude Include="src\CTraitHandler_Grabcut.h" />
@@ -105,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\main_ITHEvaluator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="TestImages\Batch0\hair1.bmp" />

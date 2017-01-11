@@ -1,3 +1,5 @@
+#include "Defines.h"
+#ifndef RUN_ITH_EVALUATOR
 #pragma warning (disable : 4244)
 
 // Include <>
@@ -31,7 +33,6 @@
 
 // Pre-headers
 #include "Types.h"
-#include "Defines.h"
 
 // Utilities
 #include "CBitset.h"
@@ -48,6 +49,7 @@
 #include "CTraitHandler_Grabcut.h"
 #include "CTraitHandler_Aspect.h"
 #include "CTraitHandler_OCR.h"
+#include "CTraitHandler_CannyCount.h"
 
 // Testing & Verification
 #include "NTesting.h"
@@ -65,3 +67,5 @@ int main(int argc, char** argv )
 
 	return 0;
 }
+
+#endif // ndef RUN_ITH_EVALUATOR

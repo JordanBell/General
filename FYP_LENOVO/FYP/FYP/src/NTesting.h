@@ -45,7 +45,7 @@ namespace NTesting
 				if(tResultGroup.m_tGroupImgID == i_tImgID)
 				{
 					// Add to existing collection
-					tResultGroup.m_sImgNames.push_back(i_sImgName);
+					tResultGroup.addImage(i_sImgName, i_tImgID);
 					return;
 				}
 			}
@@ -54,6 +54,72 @@ namespace NTesting
 			CResultGroup tResultGroup;
 			tResultGroup.addImage(i_sImgName, i_tImgID);
 			m_tResults.push_back(tResultGroup);
+		}
+
+		void getMinMaxResults(float& o_fMin, float& o_fMax)
+		{
+			o_fMin = FLT_MAX;
+			o_fMax = -FLT_MAX;
+			for(const CResultGroup& tResultGroup : m_tResults)
+			{
+				for(unsigned int i = 0; i < tResultGroup.m_tImgIDs.size(); ++i)
+				{
+					const CIDData& tImageID = tResultGroup.m_tImgIDs[i];
+					for(auto& tMem : tImageID.m_tFloats)
+					{
+						if(tMem.m_tValue > o_fMax)
+						{
+							o_fMax = tMem.m_tValue;
+						}
+
+						if(tMem.m_tValue < o_fMin)
+						{
+							o_fMin = tMem.m_tValue;
+						}
+					}
+				}
+			}
+		}
+
+		float getStandardDeviation()
+		{
+			float fMean;
+			float fTotal = 0.f;
+			float r_fStandardDeviation = 0.f;
+
+			// Get the total
+			int iCount = 0;
+			for(const CResultGroup& tResultGroup : m_tResults)
+			{
+				for(unsigned int i = 0; i < tResultGroup.m_tImgIDs.size(); ++i)
+				{
+					const CIDData& tImageID = tResultGroup.m_tImgIDs[i];
+					for(auto& tMem : tImageID.m_tFloats)
+					{
+						fTotal += tMem.m_tValue;
+						++iCount;
+					}
+				}
+			}
+
+			// Get Mean
+			fMean = fTotal / iCount;
+
+			// Build up the total SD
+			for(const CResultGroup& tResultGroup : m_tResults)
+			{
+				for(unsigned int i = 0; i < tResultGroup.m_tImgIDs.size(); ++i)
+				{
+					const CIDData& tImageID = tResultGroup.m_tImgIDs[i];
+					for(auto& tMem : tImageID.m_tFloats)
+					{
+						r_fStandardDeviation += pow(tMem.m_tValue - fMean, 2);
+					}
+				}
+			}
+
+			// SD is sqrt of mean deviation
+			return sqrt(r_fStandardDeviation / iCount);
 		}
 
 		void printResults(FILE* i_pOutFile)
@@ -101,10 +167,10 @@ namespace NTesting
 	{
 		vector<CGroup> m_tGroups;
 
-		CConfig()
+		CConfig(const string& filepath = CONFIG_FILEPATH)
 		{
 			// Load the XML file
-			file<> xmlFile(CONFIG_FILEPATH);
+			file<> xmlFile(filepath.c_str());
 			xml_document<> m_tDoc;
 			m_tDoc.parse<0>(xmlFile.data());
 
@@ -165,6 +231,28 @@ namespace NTesting
 				}
 
 				m_tGroups.push_back(tGroup);
+			}
+		}
+
+		void getMinMaxResults(float& o_fMin, float& o_fMax)
+		{
+			o_fMin = FLT_MAX;
+			o_fMax = -FLT_MAX;
+			for(CGroup& tGroup : m_tGroups)
+			{
+				float fGroupMin;
+				float fGroupMax;
+				tGroup.getMinMaxResults(fGroupMin, fGroupMax);
+
+				if(fGroupMax > o_fMax)
+				{
+					o_fMax = fGroupMax;
+				}
+
+				if(fGroupMin < o_fMin)
+				{
+					o_fMin = fGroupMin;
+				}
 			}
 		}
 	};
@@ -240,6 +328,7 @@ namespace NTesting
 			CTraitHandler_ColorFrequency ithColorFrequency;
 			CTraitHandler_Grabcut ithGrabcut;
 			CTraitHandler_Aspect ithAspect;
+			CTraitHandler_CannyCount ithCannyCount;
 
 			for(string sMemberName : i_tGroup)
 			{
@@ -278,8 +367,11 @@ namespace NTesting
 				//ithColorFrequency.evaluate(tImgID, sImageFilename, bDisplayResultImages);
 				//m_tTimer.print_lap("\tColor Frequency: ");
 
-				ithAspect.evaluate(tImgID, sImageFilename, bDisplayResultImages);
-				m_tTimer.print_lap("\tAspect: ");
+				//ithAspect.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				//m_tTimer.print_lap("\tAspect: ");
+
+				ithCannyCount.evaluate(tImgID, sImageFilename, bDisplayResultImages);
+				m_tTimer.print_lap("\tCanny Count: ");
 
 				i_tGroup.addResult(sImageFilename, tImgID);
 			}

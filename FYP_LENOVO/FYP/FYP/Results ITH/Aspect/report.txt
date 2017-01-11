@@ -1,0 +1,245 @@
+Summary
+	Max SD: Group Sign Speed Bump = 2
+	Max Range: Group Sign Winchcombe = -3.40282e+038
+
+
+Group: Christmas Card
+	Min: -27
+	Max: -6
+	Range: 21
+	Std Dev: 4.35748
+
+Group: Hair
+	Min: 0
+	Max: 0
+	Range: 0
+	Std Dev: 0
+
+Group: Intel Inside
+	Min: -10
+	Max: -6
+	Range: 4
+	Std Dev: 1.65831
+
+Group: Isaac
+	Min: -4
+	Max: -2
+	Range: 2
+	Std Dev: 1
+
+Group: Lock
+	Min: -27
+	Max: -27
+	Range: 0
+	Std Dev: 0
+
+Group: Mask
+	Min: -24
+	Max: -23
+	Range: 1
+	Std Dev: 0.5
+
+Group: Notepad
+	Min: -20
+	Max: -19
+	Range: 1
+	Std Dev: 0.471404
+
+Group: Symbols 1
+	Min: 6
+	Max: 10
+	Range: 4
+	Std Dev: 1.38444
+
+Group: Symbols 2
+	Min: -2
+	Max: 4
+	Range: 6
+	Std Dev: 2.62467
+
+Group: Symbols 3
+	Min: 1
+	Max: 4
+	Range: 3
+	Std Dev: 1.24722
+
+Group: Wall Plug
+	Min: 32
+	Max: 37
+	Range: 5
+	Std Dev: 1.74356
+
+Group: Face 1
+	Min: -25
+	Max: -24
+	Range: 1
+	Std Dev: 0.5
+
+Group: Face 2
+	Min: -24
+	Max: -21
+	Range: 3
+	Std Dev: 1.5
+
+Group: Trash Bin
+	Min: -28
+	Max: -24
+	Range: 4
+	Std Dev: 1.63299
+
+Group: Bricks
+	Min: 27
+	Max: 27
+	Range: 0
+	Std Dev: 0
+
+Group: Bush
+	Min: 27
+	Max: 27
+	Range: 0
+	Std Dev: 0
+
+Group: Defib
+	Min: -17
+	Max: -16
+	Range: 1
+	Std Dev: 0.471404
+
+Group: Landscape Grass
+	Min: 27
+	Max: 27
+	Range: 0
+	Std Dev: 0
+
+Group: Sign Ad (Blue truck)
+	Min: 27
+	Max: 37
+	Range: 10
+	Std Dev: 4.3229
+
+Group: Sign Bike
+	Min: 30
+	Max: 36
+	Range: 6
+	Std Dev: 3
+
+Group: Sign Danes
+	Min: -8
+	Max: 8
+	Range: 16
+	Std Dev: 7.31817
+
+Group: Sign Dominos 1
+	Min: 1
+	Max: 5
+	Range: 4
+	Std Dev: 1.69967
+
+Group: Sign Dominos 2
+	Min: -9
+	Max: -6
+	Range: 3
+	Std Dev: 1.5
+
+Group: Sign Dominos 3
+	Min: 8
+	Max: 8
+	Range: 0
+	Std Dev: 0
+
+Group: Sign Elders
+	Min: -32
+	Max: -22
+	Range: 10
+	Std Dev: 5
+
+Group: Sign Fitness First 1
+	Min: 21
+	Max: 34
+	Range: 13
+	Std Dev: 4.996
+
+Group: Sign Fitness First 2
+	Min: -22
+	Max: -7
+	Range: 15
+	Std Dev: 7.5
+
+Group: Sign Fitness First 3
+	Min: -17
+	Max: 2
+	Range: 19
+	Std Dev: 9.5
+
+Group: Sign Fish
+	Min: 18
+	Max: 23
+	Range: 5
+	Std Dev: 2.16025
+
+Group: Sign Greggs 1
+	Min: 44
+	Max: 49
+	Range: 5
+	Std Dev: 2.12132
+
+Group: Sign Greggs 2
+	Min: 11
+	Max: 20
+	Range: 9
+	Std Dev: 4.5
+
+Group: Sign Hingley
+	Min: 43
+	Max: 44
+	Range: 1
+	Std Dev: 0.471405
+
+Group: Sign Hobs Meadow 1
+	Min: 54
+	Max: 57
+	Range: 3
+	Std Dev: 1.5
+
+Group: Sign Hobs Meadow 2
+	Min: -20
+	Max: -14
+	Range: 6
+	Std Dev: 3
+
+Group: Sign Left Only
+	Min: 0
+	Max: 4
+	Range: 4
+	Std Dev: 1.47902
+
+Group: Sign School
+	Min: -20
+	Max: -17
+	Range: 3
+	Std Dev: 1.5
+
+Group: Sign Speed Bump
+	Min: -9
+	Max: 11
+	Range: 20
+	Std Dev: 10
+
+Group: Sign Tesco 1
+	Min: 41
+	Max: 45
+	Range: 4
+	Std Dev: 1.65831
+
+Group: Sign Tesco 2
+	Min: 13
+	Max: 17
+	Range: 4
+	Std Dev: 1.69967
+
+Group: Sign Winchcombe
+	Min: 51
+	Max: 53
+	Range: 2
+	Std Dev: 0.942809
+

@@ -7,7 +7,7 @@ This test configuration file checks for any false positives among all images.
 <testConfig>
   
   <!-- Misc -->
-  <group name="All" doDisplay="true">
+  <group name="All" doDisplay="false">
     <!--<member>Batch3/xmas_card_15.jpg</member>-->
     <memberGenerator prefix="Batch3/xmas_card_" count="18" extension="jpg"/>
     <memberGenerator prefix="Batch0/hair" count="2" extension="bmp"/>

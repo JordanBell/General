@@ -10,9 +10,16 @@ struct CTraitHandler
 
 	string m_sResultDirectory;
 
+	bool m_bIsFloatBased;
+
 	static Size s_tInputSizeLimit;
 
 	int m_iInstanceIndex;
+
+	CTraitHandler()
+		: m_bIsFloatBased(true)
+	{
+	}
 
 	virtual ~CTraitHandler()
 	{

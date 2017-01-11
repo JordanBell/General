@@ -153,6 +153,17 @@ struct CIDData
 		m_tCustom_CF = i_vAverageOf[0].m_tCustom_CF;
 	}
 
+	void addAll(CIDData& tFromOther)
+	{
+		if(tFromOther.m_tCustom_CF.m_bIsSet)
+		{
+			m_tCustom_CF = tFromOther.m_tCustom_CF;
+		}
+
+		for_each(tFromOther.m_tFloats.begin(), tFromOther.m_tFloats.end(), [this] (CIDMember<float>& i_t) { m_tFloats.push_back(i_t); });
+		for_each(tFromOther.m_tBools.begin(), tFromOther.m_tBools.end(), [this] (CIDMember<bool>& i_t) { m_tBools.push_back(i_t); });
+	}
+
 	void addFloat(const string& i_sID, const float i_fValue, const float i_fAllowanceAbs)
 	{
 		m_tFloats.push_back(CIDMember<float>(i_sID, i_fValue, i_fAllowanceAbs));

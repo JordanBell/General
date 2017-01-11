@@ -1,3 +1,5 @@
+#pragma once
+
 // This file configures the project as a whole
 
 //#define RAW_INPUT
@@ -30,8 +32,9 @@
 #define ALLOWANCE_COLOR_FREQUENCY 0.25f
 #define ALLOWANCE_COLOR_FREQUENCY_MATCHES 2
 #define ALLOWANCE_DIMENSION_COLOR_COUNT 2.f
-#define ALLOWANCE_WIDTH_HEIGHT_DIFF 10.f
-#define ALLOWANCE_TOTAL_MATCHES 1
+#define ALLOWANCE_WIDTH_HEIGHT_DIFF 20.f
+#define ALLOWANCE_CANNY_COUNT 300.f
+#define ALLOWANCE_TOTAL_MATCHES 0
 
 // Channel Delta Count threshold (used in dimension averages)
 #define CDC_THRESHOLD 10
@@ -40,6 +43,13 @@
 #define ENSURE_DIR(i_sFilename) { int ensDirRes = ensureDirectory(i_sFilename); if(ensDirRes) return ensDirRes; }
 
 // Testing
-#define CONFIG_FILEPATH "testConfig - all.xml"
+#define CONFIG_FILEPATH "testConfig - Acceptable.xml"
 //#define CONFIG_FILEPATH "testConfig - all.xml"
 #define OUTPUT_LOG_FILENAME "results.txt"
+
+#define RUN_ITH_EVALUATOR
+
+#ifdef RUN_ITH_EVALUATOR
+#define ITH_RESULTS_DIR "Results ITH/"
+//#define ITH_SHOW_GRAPHS
+#endif

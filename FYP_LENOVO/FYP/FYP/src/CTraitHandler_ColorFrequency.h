@@ -4,6 +4,12 @@ using namespace cv;
 struct CTraitHandler_ColorFrequency : public CTraitHandler
 {
 	vector<pair<float, Vec3b>> m_vColors;
+	
+	CTraitHandler_ColorFrequency()
+		: CTraitHandler()
+	{
+		m_bIsFloatBased = false;
+	}
 
 	Mat getFreqGraph()
 	{

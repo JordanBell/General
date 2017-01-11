@@ -205,12 +205,12 @@ void snapColorsHLS(Vec3b& io_vColor, const int i_iChannelDivisions)
 	}
 }
 
-Vec3b toHLS(const Vec3b& i_tAsBGR)
+void cvtColor(Vec3b& io_tColor, const int code)
 {
-	Mat tHLS(1, 1, CV_8UC3);
-	tHLS.at<Vec3b>(0, 0) = i_tAsBGR;
-	cvtColor(tHLS, tHLS, CV_BGR2HLS);
-	return tHLS.at<Vec3b>(0, 0);
+	Mat tImgColor(1, 1, CV_8UC3);
+	tImgColor.at<Vec3b>(0, 0) = io_tColor;
+	cvtColor(tImgColor, tImgColor, code);
+	io_tColor = tImgColor.at<Vec3b>(0, 0);
 }
 
 void colorSnap(Mat& io_tImage)

@@ -122,9 +122,15 @@
     <ClInclude Include="src\CTraitHandler_OCR.h">
       <Filter>src\ITH</Filter>
     </ClInclude>
+    <ClInclude Include="src\CTraitHandler_CannyCount.h">
+      <Filter>src\ITH</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main_ITHEvaluator.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
